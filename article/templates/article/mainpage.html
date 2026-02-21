@@ -1,12 +1,16 @@
-<!DOCTYPE html>
+{% extends 'article/HF.html' %}
+{% load static %}
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Premium News Hero</title>
-<link rel="stylesheet" href="mainpage.css">
-</head>
-<body>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+{% block herosection %}
+
+<!-- <title>Premium News Hero</title> -->
+<link rel="stylesheet" href="{% static 'css/mainpage.css' %}">
+<!-- </head>
+<body> -->
 
 <section class="hero">
 
@@ -50,6 +54,7 @@
 
 </section>
 
-<script src="mainpage.js"></script>
-</body>
-</html>
+<script src="{% static 'js/mainpage.js' %}"></script>
+{% endblock %}
+<!-- </body>
+</html> -->
