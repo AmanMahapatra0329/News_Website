@@ -16,7 +16,9 @@
 
   <!-- Breaking News -->
   <div class="ticker">
-    <span>🔥 Breaking: AI reshaping global markets | Major political updates | Tech startup secures $50M funding</span>
+    {% for break in breaking %}
+    <span>🔥{{break.title}}</span>
+    {% endfor %}
   </div>
 
   <!-- Header -->

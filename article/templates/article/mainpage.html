@@ -15,12 +15,15 @@
 <section class="hero">
 
   <!-- Slides -->
+   
   <div class="slides">
-    <div class="slide active" data-title="Global Markets Surge After Historic Policy Reform"
-         data-desc="Investors worldwide react strongly to unexpected economic shifts."
-         style="background-image:url('demo1.jpg')"></div>
+    {% for hr in hero %}
+    <div class="slide active" data-title={{hr.title}}
+         data-desc={{hr.desctiption}}
+         image="{{hr.image}}"></div>
+         {% endfor %}
 
-    <div class="slide"
+    <!-- <div class="slide"
          data-title="Elections Reshape International Alliances"
          data-desc="New leadership brings strategic changes across continents."
          style="background-image:url('demo2.jpg')"></div>
@@ -28,7 +31,7 @@
     <div class="slide"
          data-title="Technology Giants Enter AI Arms Race"
          data-desc="Innovation accelerates as firms compete for dominance."
-         style="background-image:url('demo3.jpg')"></div>
+         style="background-image:url('demo3.jpg')"></div> -->
   </div>
 
   <!-- Overlay -->

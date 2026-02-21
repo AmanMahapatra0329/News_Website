@@ -7,3 +7,13 @@ class Herosection(models.Model):
 
     def __str__(self):
         return self.title
+
+class breakingnews(models.Model):
+    title=models.TextField()
+
+    def save(self, *args , **kwargs):
+        self.pk=1
+        super().save(*args,**kwargs)
+
+    def __str__(self):
+        return self.title
