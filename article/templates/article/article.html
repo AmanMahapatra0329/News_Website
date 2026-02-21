@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Article</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="newslist.css">
+</head>
+<body>
+
+<div class="article-container">
+
+  <div class="article-header">
+    <button class="back-btn" onclick="goBack()">← Back</button>
+  </div>
+
+  <div id="articleContent"></div>
+
+</div>
+
+<script>
+const article = JSON.parse(localStorage.getItem("selectedArticle"));
+const container = document.getElementById("articleContent");
+
+if (!article) {
+  container.innerHTML = `
+    <div class="not-found">
+      <h2>Article not found</h2>
+      <p>Please go back and select a valid article.</p>
+    </div>
+  `;
+} else {
+
+  const publishDate = new Date().toLocaleDateString();
+
+  container.innerHTML = `
+    <div class="article-hero">
+      ${
+        article.type === "video"
+          ? `<video class="article-media" src="${article.mediaUrl}" controls></video>`
+          : `<img class="article-media" src="${article.mediaUrl}" alt="${article.title}" />`
+      }
+    </div>
+
+    <div class="article-body">
+
+      <div class="article-meta">
+        <span class="badge">${article.type.toUpperCase()}</span>
+        <span class="date">${publishDate}</span>
+      </div>
+
+      <h1 class="article-title">${article.title}</h1>
+
+      <p class="article-description">${article.description}</p>
+
+      <div class="article-content">
+        ${article.fullContent}
+      </div>
+
+      <div class="article-actions">
+        <button class="share-btn" onclick="shareArticle()">Share</button>
+        <button class="copy-btn" onclick="copyLink()">Copy Link</button>
+      </div>
+
+    </div>
+  `;
+}
+
+function goBack() {
+  window.location.href = "index.html";
+}
+
+function shareArticle() {
+  if (!article) return;
+
+  const shareData = {
+    title: article.title,
+    text: article.description,
+    url: window.location.href
+  };
+
+  if (navigator.share) {
+    navigator.share(shareData);
+  } else {
+    copyLink();
+  }
+}
+
+function copyLink() {
+  navigator.clipboard.writeText(window.location.href);
+  alert("Link copied successfully!");
+}
+</script>
+
+</body>
+</html>

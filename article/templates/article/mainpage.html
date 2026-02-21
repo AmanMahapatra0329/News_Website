@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Premium News Hero</title>
+<link rel="stylesheet" href="mainpage.css">
+</head>
+<body>
+
+<section class="hero">
+
+  <!-- Slides -->
+  <div class="slides">
+    <div class="slide active" data-title="Global Markets Surge After Historic Policy Reform"
+         data-desc="Investors worldwide react strongly to unexpected economic shifts."
+         style="background-image:url('demo1.jpg')"></div>
+
+    <div class="slide"
+         data-title="Elections Reshape International Alliances"
+         data-desc="New leadership brings strategic changes across continents."
+         style="background-image:url('demo2.jpg')"></div>
+
+    <div class="slide"
+         data-title="Technology Giants Enter AI Arms Race"
+         data-desc="Innovation accelerates as firms compete for dominance."
+         style="background-image:url('demo3.jpg')"></div>
+  </div>
+
+  <!-- Overlay -->
+  <div class="overlay"></div>
+
+  <!-- Content -->
+  <div class="hero-content">
+    <span class="badge">Breaking</span>
+    <h1 id="headline"></h1>
+    <p id="description"></p>
+
+    <div class="buttons">
+      <button class="primary">Read Story</button>
+      <button class="secondary">Live Coverage</button>
+    </div>
+  </div>
+
+  <!-- Controls -->
+  <div class="controls">
+    <div class="progress"></div>
+    <div class="dots"></div>
+  </div>
+
+</section>
+
+<script src="mainpage.js"></script>
+</body>
+</html>
