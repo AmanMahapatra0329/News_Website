@@ -1,42 +1,88 @@
-{% extends 'article/mainpage.html' %}
-{% load static %}
-<!-- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>News Section</title> -->
-{% block articlecart %}
-<link rel="stylesheet" href="{% static 'css/newslist.css'%}">
+<title>News Section</title>
+<link rel="stylesheet" href="newslist.css">
+</head>
 
-<!-- </head>
-
-<body> -->
+<body>
 
 <!-- TOP TABS -->
-<!-- <div class="top-tabs">
+<div class="top-tabs">
   <button id="articlesBtn" class="active">Articles</button>
   <button id="videosBtn">Videos</button>
-</div> -->
+</div>
 
 <!-- NEWS SECTION -->
- 
 <section class="news-section">
 
-  <!-- Loader -->
-  <div id="loader" class="loader-grid"></div>
+  <div id="newsContainer" class="news-grid">
 
-  <!-- News Grid -->
-  <div id="newsContainer" class="news-grid"></div>
+    <!-- ARTICLE CARD -->
+    <div class="news-card">
 
-  <!-- Empty Message -->
-  <p id="emptyMessage" class="empty-message">
-    No news available.
-  </p>
+      <div class="news-type" style="display:none;">article</div>
+
+      <div class="news-image">
+        <img src="https://picsum.photos/800/500?random=1">
+      </div>
+
+      <div class="news-category">Technology</div>
+
+      <div class="news-title">
+        AI is Redefining Global Economy in 2026
+      </div>
+
+      <div class="news-author">Editorial Team</div>
+
+      <div class="news-date">Jan 20, 2026</div>
+
+      <div class="news-description">
+        Artificial intelligence is rapidly transforming healthcare.
+      </div>
+
+      <div class="news-full" style="display:none;">
+        Full detailed article content about AI economy impact in 2026...
+      </div>
+
+    </div>
+
+
+    <!-- VIDEO CARD -->
+    <div class="news-card">
+
+      <div class="news-type" style="display:none;">video</div>
+
+      <div class="news-image">
+        <img src="https://picsum.photos/800/500?random=2">
+      </div>
+
+      <div class="news-category">World</div>
+
+      <div class="news-title">
+        Election Results Explained
+      </div>
+
+      <div class="news-author">Global Desk</div>
+
+      <div class="news-date">Jan 18, 2026</div>
+
+      <div class="news-description">
+        Watch full breakdown of international political shifts.
+      </div>
+
+      <div class="news-full" style="display:none;">
+        Video detailed explanation...
+      </div>
+
+    </div>
+
+  </div>
 
 </section>
 
-<script src="{% static 'js/newslist.js'%}"></script>
-{% endblock %}
-<!-- </body>
-</html> -->
+<script src="newslist.js"></script>
+</body>
+</html>
