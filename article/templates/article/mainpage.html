@@ -61,16 +61,24 @@
   <div class="top-tabs">
   <button id="articlesBtn" class="active">Articles</button>
   <button id="videosBtn">Videos</button>
-</div>
+</div> 
+<!-- mark -->
 
-<section class="news-section">
+<!-- <section class="news-section">
   <div id="loader" class="loader-grid"></div>
   <div id="newsContainer" class="news-grid"></div>
   <p id="emptyMessage" class="empty-message">No news available.</p>
+</section> -->
 </section>
-</section>
+
+{% block articlecart %}
+
+    {% endblock %} 
 
 <script src="{% static 'js/mainpage.js' %}"></script>
 {% endblock %}
+
+ 
+
 <!-- </body>
 </html> -->
