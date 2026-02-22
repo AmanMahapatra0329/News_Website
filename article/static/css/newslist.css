@@ -12,6 +12,7 @@
   border-radius:14px;
   overflow:hidden;
   transition:.4s ease;
+  cursor:pointer;
 }
 
 /* Animated Gradient Border */
@@ -67,8 +68,8 @@
   background:linear-gradient(to top,rgba(0,0,0,.9),transparent);
 }
 
-/* Category */
-.category{
+/* Category (updated for your HTML class) */
+.news-category{
   position:absolute;
   top:15px;
   left:15px;
@@ -78,10 +79,12 @@
   text-transform:uppercase;
   border-radius:4px;
   color:#fff;
+  background:#ff0047;
+  z-index:2;
 }
 
-/* Title */
-.title-overlay{
+/* Title (updated for your HTML class) */
+.news-title{
   position:absolute;
   bottom:15px;
   left:15px;
@@ -92,20 +95,22 @@
   z-index:2;
 }
 
+/* Content */
 .news-content{
   padding:18px;
 }
 
-.meta{
+.news-author,
+.news-date{
   font-size:13px;
   color:#aaa;
-  margin-bottom:10px;
 }
 
-.description{
+.news-description{
   font-size:14px;
   color:#ddd;
   line-height:1.5;
+  margin-top:10px;
   display:-webkit-box;
   -webkit-line-clamp:3;
   -webkit-box-orient:vertical;
