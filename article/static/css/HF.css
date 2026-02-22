@@ -18,7 +18,7 @@ body{
 
 /* Page wrapper for sticky footer */
 .page-wrapper{
-  min-height:100%;
+  min-height:100vh;
   display:flex;
   flex-direction:column;
 }
@@ -173,6 +173,7 @@ body{
   font-size:14px;
 }
 
+
 /* BACK TO TOP */
 
 #backToTop{
@@ -187,6 +188,7 @@ body{
   cursor:pointer;
   display:none;
 }
+
 
 /* RESPONSIVE */
 
@@ -205,3 +207,66 @@ body{
   }
 
 }
+/* Header Actions */
+
+.header-actions{
+display:flex;
+align-items:center;
+gap:15px;
+}
+
+/* Search Box */
+
+#searchInput{
+padding:10px 16px;
+border-radius:25px;
+border:1px solid #ddd;
+outline:none;
+width:220px;
+transition:.3s;
+}
+
+#searchInput:focus{
+border-color:#e11d48;
+box-shadow:0 0 10px rgba(225,29,72,.2);
+}
+
+/* Dark Mode Button */
+
+#darkModeToggle{
+padding:10px 14px;
+border:none;
+border-radius:50%;
+cursor:pointer;
+background:#f1f5f9;
+transition:.3s;
+}
+
+#darkModeToggle:hover{
+background:#e11d48;
+color:white;
+}
+
+/* Dark Mode Theme */
+
+body.dark{
+background:#020617;
+color:white;
+}
+
+body.dark .header{
+background:#0f172a;
+}
+
+body.dark .footer{
+background:#020617;
+}
+
+body.dark .news-card{
+background:#0f172a;
+color:white;
+}
+
+
+
+
