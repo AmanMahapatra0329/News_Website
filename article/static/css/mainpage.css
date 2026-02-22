@@ -205,3 +205,114 @@ body{
     font-size:16px;
   }
 }
+/* ===== PREMIUM ENHANCEMENTS ===== */
+
+/* Soft cinematic fade on slides */
+.slide::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:radial-gradient(circle at 30% 50%, rgba(255,0,70,.2), transparent 60%);
+  mix-blend-mode:screen;
+}
+
+/* Glass effect content panel */
+.hero-content{
+  backdrop-filter:blur(8px);
+}
+
+/* Premium Title Gradient */
+.hero-content h1{
+  background:linear-gradient(90deg,#ffffff,#ff4d6d);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+/* Subtle text shadow */
+.hero-content h1,
+.hero-content p{
+  text-shadow:0 5px 20px rgba(0,0,0,.6);
+}
+
+/* Animated primary button glow */
+.primary{
+  box-shadow:0 0 15px rgba(225,29,72,.4);
+}
+
+.primary:hover{
+  box-shadow:0 0 30px rgba(225,29,72,.8);
+}
+
+/* Progress bar animation */
+.progress.animate::after{
+  animation:progressFill 6s linear forwards;
+}
+
+@keyframes progressFill{
+  from{width:0%;}
+  to{width:100%;}
+}
+/* ===== TOP TABS WRAPPER ===== */
+.top-tabs{
+  display:flex;
+  justify-content:center;
+  gap:20px;
+  margin:40px 0;
+  padding:10px;
+}
+
+/* ===== BUTTON BASE ===== */
+.top-tabs button{
+  position:relative;
+  padding:14px 40px;
+  font-size:18px;
+  font-weight:600;
+  letter-spacing:0.5px;
+  border:none;
+  border-radius:40px;
+  cursor:pointer;
+  color:#fff;
+  background:rgba(255,255,255,0.08);
+  backdrop-filter:blur(10px);
+  transition:all .35s ease;
+  overflow:hidden;
+}
+
+/* Soft glow
+.top-tabs button::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius:40px;
+  background:linear-gradient(45deg,#ff0047,#6a00ff,#00f0ff);
+  opacity:0;
+  transition:.4s;
+  z-index:-1;
+} */
+
+/* Hover Effect */
+.top-tabs button:hover{
+  transform:translateY(-3px);
+  box-shadow:0 8px 15px rgba(0,0,0,.4);
+}
+
+.top-tabs button:hover::before{
+  opacity:1;
+}
+
+/* Active Button */
+.top-tabs button.active{
+  background:linear-gradient(45deg,rgb(124, 122, 122));
+  box-shadow:0 10px 15px rgb(180, 179, 179);
+}
+
+/* Active Glow Animation
+.top-tabs button.active{
+  animation:glowPulse 3s infinite;
+} */
+
+/* @keyframes glowPulse{
+  0%{box-shadow:0 0 10px rgba(255,0,80,.5);}
+  50%{box-shadow:0 0 25px rgba(255,0,80,.8);}
+  100%{box-shadow:0 0 10px rgba(255,0,80,.5);}
+} */

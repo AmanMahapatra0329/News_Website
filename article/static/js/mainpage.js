@@ -48,6 +48,18 @@ function restartTimer(){
 function animateProgress(){
   const bar = progressBar.querySelector("::after");
 }
+const articlesBtn = document.getElementById("articlesBtn");
+const videosBtn = document.getElementById("videosBtn");
+
+articlesBtn.addEventListener("click", ()=>{
+  articlesBtn.classList.add("active");
+  videosBtn.classList.remove("active");
+});
+
+videosBtn.addEventListener("click", ()=>{
+  videosBtn.classList.add("active");
+  articlesBtn.classList.remove("active");
+});
 
 updateContent(0);
 restartTimer();
