@@ -86,11 +86,11 @@
 /* Title (updated for your HTML class) */
 .news-title{
   position:absolute;
-  bottom:15px;
-  left:15px;
+  bottom: 19px;
+  left:0px;
   right:15px;
   color:#fff;
-  font-size:18px;
+  font-size:16px;
   font-weight:600;
   z-index:2;
 }
@@ -110,7 +110,7 @@
   font-size:14px;
   color:#ddd;
   line-height:1.5;
-  margin-top:10px;
+  margin-top:19px;
   display:-webkit-box;
   -webkit-line-clamp:3;
   -webkit-box-orient:vertical;

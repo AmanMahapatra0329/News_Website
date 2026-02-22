@@ -1,13 +1,16 @@
-<!DOCTYPE html>
+{% extends 'article/mainpage.html'%}
+{% load static %}
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>News Section</title>
-<link rel="stylesheet" href="newslist.css">
-</head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+<!-- <title>News Section</title> -->
+ {% block articlecart%}
+<link rel="stylesheet" href="{% static 'css/newslist.css'%}">
+<!-- </head>
 
-<body>
+<body> -->
 
 <!-- TOP TABS -->
 <div class="top-tabs">
@@ -19,36 +22,36 @@
 <section class="news-section">
 
   <div id="newsContainer" class="news-grid">
-
+ {% for art in articles %}
     <!-- ARTICLE CARD -->
     <div class="news-card">
 
       <div class="news-type" style="display:none;">article</div>
 
-      <div class="news-image">
-        <img src="https://picsum.photos/800/500?random=1">
+      <div class="news-image" data="{{art.image}}">
+        
       </div>
 
       <div class="news-category">Technology</div>
 
+    <div class="news-author">Editorial Team</div>
+
       <div class="news-title">
-        AI is Redefining Global Economy in 2026
+       <span>{{art.title}}</span>
       </div>
 
-      <div class="news-author">Editorial Team</div>
+      <div class="news-date">{{art.published_date}}</div>
 
-      <div class="news-date">Jan 20, 2026</div>
+      <!-- <div class="news-description">
+       <span>{{art.description}}</span>
+      </div> -->
 
-      <div class="news-description">
-        Artificial intelligence is rapidly transforming healthcare.
-      </div>
-
-      <div class="news-full" style="display:none;">
+      <!-- <div class="news-full" style="display:none;">
         Full detailed article content about AI economy impact in 2026...
-      </div>
+      </div> -->
 
     </div>
-
+{% endfor %}
 
     <!-- VIDEO CARD -->
     <div class="news-card">
@@ -82,7 +85,7 @@
   </div>
 
 </section>
-
-<script src="newslist.js"></script>
-</body>
-</html>
+{% endblock %}
+<script src="{% static 'js/newslist.js'%}"></script>
+<!-- </body>
+</html> -->
