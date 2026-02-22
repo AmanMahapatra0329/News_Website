@@ -1,91 +1,108 @@
-{% extends 'article/mainpage.html'%}
-{% load static %}
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
-<!-- <title>News Section</title> -->
- {% block articlecart%}
-<link rel="stylesheet" href="{% static 'css/newslist.css'%}">
-<!-- </head>
-
-<body> -->
-
-<!-- TOP TABS -->
-<div class="top-tabs">
-  <button id="articlesBtn" class="active">Articles</button>
-  <button id="videosBtn">Videos</button>
-</div>
-
-<!-- NEWS SECTION -->
+<!-- News Section -->
 <section class="news-section">
-
   <div id="newsContainer" class="news-grid">
- {% for art in articles %}
-    <!-- ARTICLE CARD -->
-    <div class="news-card">
 
+    <!-- ARTICLE CARD 1 -->
+    <div class="news-card">
       <div class="news-type" style="display:none;">article</div>
-
-      <div class="news-image" data="{{art.image}}">
-        
-      </div>
-
-      <div class="news-category">Technology</div>
-
-    <div class="news-author">Editorial Team</div>
-
-      <div class="news-title">
-       <span>{{art.title}}</span>
-      </div>
-
-      <div class="news-date">{{art.published_date}}</div>
-
-      <!-- <div class="news-description">
-       <span>{{art.description}}</span>
-      </div> -->
-
-      <!-- <div class="news-full" style="display:none;">
-        Full detailed article content about AI economy impact in 2026...
-      </div> -->
-
-    </div>
-{% endfor %}
-
-    <!-- VIDEO CARD -->
-    <div class="news-card">
-
-      <div class="news-type" style="display:none;">video</div>
-
       <div class="news-image">
-        <img src="https://picsum.photos/800/500?random=2">
+        <img src="https://picsum.photos/800/500?random=1" alt="AI Economy">
       </div>
+      <div class="news-category">Technology</div>
+      <div class="news-title"><a href="#">AI is Redefining Global Economy in 2026</a></div>
+      <div class="news-author">Editorial Team</div>
+      <div class="news-date">Jan 20, 2026</div>
+      <div class="news-description">Artificial intelligence is rapidly transforming healthcare.</div>
+      <div class="news-full" style="display:none;">Full detailed article content about AI economy impact in 2026...</div>
+      <div class="news-share">
+        <div class="share-btn fb">F</div>
+        <div class="share-btn tw">M</div>
+        <div class="share-btn mail">✉</div>
+        <div class="share-btn more">+</div>
+      </div>
+    </div>
 
+    <!-- ARTICLE CARD 2 -->
+    <div class="news-card">
+      <div class="news-type" style="display:none;">article</div>
+      <div class="news-image">
+        <img src="https://picsum.photos/800/500?random=3" alt="Space Exploration">
+      </div>
+      <div class="news-category">Science</div>
+      <div class="news-title"><a href="#">Mars Mission Update: Key Discoveries</a></div>
+      <div class="news-author">Space Desk</div>
+      <div class="news-date">Jan 21, 2026</div>
+      <div class="news-description">NASA releases findings from the latest Mars rover mission.</div>
+      <div class="news-full" style="display:none;">Full article about Mars discoveries, samples, and analysis...</div>
+      <div class="news-share">
+        <div class="share-btn fb">F</div>
+        <div class="share-btn tw">M</div>
+        <div class="share-btn mail">✉</div>
+        <div class="share-btn more">+</div>
+      </div>
+    </div>
+
+    <!-- ARTICLE CARD 3 -->
+    <div class="news-card">
+      <div class="news-type" style="display:none;">article</div>
+      <div class="news-image">
+        <img src="https://picsum.photos/800/500?random=4" alt="Green Energy">
+      </div>
+      <div class="news-category">Environment</div>
+      <div class="news-title"><a href="#">Green Energy Projects Surge in 2026</a></div>
+      <div class="news-author">Eco Watch</div>
+      <div class="news-date">Jan 22, 2026</div>
+      <div class="news-description">Renewable energy installations are reaching new heights this year.</div>
+      <div class="news-full" style="display:none;">Full article on green energy expansion, solar, wind, and hydro projects...</div>
+      <div class="news-share">
+        <div class="share-btn fb">F</div>
+        <div class="share-btn tw">M</div>
+        <div class="share-btn mail">✉</div>
+        <div class="share-btn more">+</div>
+      </div>
+    </div>
+
+    <!-- VIDEO CARD 1 -->
+    <div class="news-card" data-video="videos/election.mp4">
+      <div class="news-type" style="display:none;">video</div>
+      <div class="news-image">
+        <img src="https://picsum.photos/800/500?random=5" alt="Election Results">
+        <div class="video-play">&#9658;</div>
+      </div>
       <div class="news-category">World</div>
-
-      <div class="news-title">
-        Election Results Explained
-      </div>
-
+      <div class="news-title"><a href="#">Election Results Explained</a></div>
       <div class="news-author">Global Desk</div>
-
       <div class="news-date">Jan 18, 2026</div>
-
-      <div class="news-description">
-        Watch full breakdown of international political shifts.
+      <div class="news-description">Watch full breakdown of international political shifts.</div>
+      <div class="news-full" style="display:none;">Video detailed explanation about elections, votes, and analysis...</div>
+      <div class="news-share">
+        <div class="share-btn fb">F</div>
+        <div class="share-btn tw">M</div>
+        <div class="share-btn mail">✉</div>
+        <div class="share-btn more">+</div>
       </div>
+    </div>
 
-      <div class="news-full" style="display:none;">
-        Video detailed explanation...
+    <!-- VIDEO CARD 2 -->
+    <div class="news-card" data-video="videos/tech-review.mp4">
+      <div class="news-type" style="display:none;">video</div>
+      <div class="news-image">
+        <img src="https://picsum.photos/800/500?random=6" alt="Tech Review">
+        <div class="video-play">&#9658;</div>
       </div>
-
+      <div class="news-category">Technology</div>
+      <div class="news-title"><a href="#">Latest Gadget Review</a></div>
+      <div class="news-author">Tech Team</div>
+      <div class="news-date">Jan 23, 2026</div>
+      <div class="news-description">A detailed look at the newest gadgets in 2026.</div>
+      <div class="news-full" style="display:none;">Full video review including specs, performance, and ratings...</div>
+      <div class="news-share">
+        <div class="share-btn fb">F</div>
+        <div class="share-btn tw">M</div>
+        <div class="share-btn mail">✉</div>
+        <div class="share-btn more">+</div>
+      </div>
     </div>
 
   </div>
-
 </section>
-{% endblock %}
-<script src="{% static 'js/newslist.js'%}"></script>
-<!-- </body>
-</html> -->

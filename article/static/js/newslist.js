@@ -29,17 +29,17 @@ document.addEventListener("DOMContentLoaded", function(){
   // Click → Open article page
   cards.forEach(card => {
     card.addEventListener("click", function(){
-
       const data = {
-        title: card.querySelector(".news-title").innerText,
+        type: card.querySelector(".news-type").innerText.trim(),
+        title: card.querySelector(".news-title a").innerText,
         category: card.querySelector(".news-category").innerText,
         author: card.querySelector(".news-author").innerText,
         date: card.querySelector(".news-date").innerText,
         description: card.querySelector(".news-description").innerText,
         fullContent: card.querySelector(".news-full").innerText,
-        image: card.querySelector("img").src
+        image: card.querySelector("img").src,
+        videoUrl: card.dataset.video || ""
       };
-
       localStorage.setItem("selectedArticle", JSON.stringify(data));
       window.location.href = "article.html";
     });
