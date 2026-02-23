@@ -1,13 +1,14 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
 <head>
   <title>Article</title>
-  <link rel="stylesheet" href="article.css">
+  <link rel="stylesheet" href="{%static 'css/article.css'%}">
 </head>
 <body>
 <div class="article-wrapper">
   <div id="articleContainer"></div>
 </div>
-<script src="article.js"></script>
+<script src="{%static 'js/article.js'%}"></script>
 </body>
 </html>

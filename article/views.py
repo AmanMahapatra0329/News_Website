@@ -8,6 +8,8 @@ def homepage(request):
     articles=homepagearticle.objects.all()
     return render(request,'article/newslist.html',{"hero":hero,"breaking":breaking,"articles":articles})
 
+def temp(request):
+    return render(request,"article/article.html")
 # def breakingnews_text(request):
 #     breaking=breakingnews.objects.all()
 #     return render(request,'article/newscard.html',{"breaking":breaking})

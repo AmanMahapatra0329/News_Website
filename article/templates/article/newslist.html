@@ -1,18 +1,23 @@
+{% extends 'article/mainpage.html' %}
+{% load static %}
+{% block articlecart %}
+<link rel="stylesheet" href="{% static 'css/newslist.css' %}">
 <!-- News Section -->
 <section class="news-section">
   <div id="newsContainer" class="news-grid">
-
+{% for art in articles %}
     <!-- ARTICLE CARD 1 -->
     <div class="news-card">
       <div class="news-type" style="display:none;">article</div>
       <div class="news-image">
-        <img src="https://picsum.photos/800/500?random=1" alt="AI Economy">
+        <!-- <img src="https://picsum.photos/800/500?random=1" alt="AI Economy"> -->
+         <span>{{art.image}}</span>
       </div>
       <div class="news-category">Technology</div>
-      <div class="news-title"><a href="#">AI is Redefining Global Economy in 2026</a></div>
+      <div class="news-title"><a href="abcd">{{art.title}}</a></div>
       <div class="news-author">Editorial Team</div>
-      <div class="news-date">Jan 20, 2026</div>
-      <div class="news-description">Artificial intelligence is rapidly transforming healthcare.</div>
+      <div class="news-date">{{art.published_date}}</div>
+      <div class="news-description">{{art.description}}</div>
       <div class="news-full" style="display:none;">Full detailed article content about AI economy impact in 2026...</div>
       <div class="news-share">
         <div class="share-btn fb">F</div>
@@ -21,7 +26,7 @@
         <div class="share-btn more">+</div>
       </div>
     </div>
-
+{% endfor %}
     <!-- ARTICLE CARD 2 -->
     <div class="news-card">
       <div class="news-type" style="display:none;">article</div>
@@ -106,3 +111,5 @@
 
   </div>
 </section>
+<script src="{% static 'js/newslist.js' %}"></script>
+{% endblock %}

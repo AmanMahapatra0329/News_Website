@@ -23,7 +23,7 @@ class homepagearticle(models.Model):
     image=models.CharField(max_length=10)
     title=models.CharField(max_length=100)
     published_date=models.DateTimeField(default=datetime.now)
-    # description=models.TextField()
+    description=models.TextField(default="No description provided")
 
     def __str__(self):
         return self.title
