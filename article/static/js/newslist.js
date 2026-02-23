@@ -45,4 +45,73 @@ document.addEventListener("DOMContentLoaded", function(){
     });
   });
 
+});  
+
+
+
+
+
+
+
+
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  const categoryLinks = document.querySelectorAll("nav a, .mobile-nav a");
+  const newsCards = document.querySelectorAll(".news-card");
+  const articlesBtn = document.getElementById("articlesBtn");
+  const videosBtn = document.getElementById("videosBtn");
+
+  let currentCategory = "All";
+  let currentType = "article"; // default to articles
+
+  // Function to filter news
+  function filterNews() {
+    newsCards.forEach(card => {
+      const cardCategory = card.querySelector(".news-category").textContent.trim();
+      const cardType = card.querySelector(".news-type").textContent.trim();
+
+      const categoryMatch = (currentCategory === "All") || (cardCategory === currentCategory);
+      const typeMatch = (currentType === "all") || (cardType === currentType);
+
+      if (categoryMatch && typeMatch) {
+        card.style.display = "block";
+      } else {
+        card.style.display = "none";
+      }
+    });
+  }
+
+  // Header category click
+  categoryLinks.forEach(link => {
+    link.addEventListener("click", (e) => {
+      e.preventDefault();
+      currentCategory = link.getAttribute("data-category").trim();
+      filterNews();
+
+      // Highlight active category
+      categoryLinks.forEach(l => l.classList.remove("active"));
+      link.classList.add("active");
+    });
+  });
+
+  // Top-tabs click
+  articlesBtn.addEventListener("click", () => {
+    currentType = "article";
+    filterNews();
+
+    articlesBtn.classList.add("active");
+    videosBtn.classList.remove("active");
+  });
+
+  videosBtn.addEventListener("click", () => {
+    currentType = "video";
+    filterNews();
+
+    videosBtn.classList.add("active");
+    articlesBtn.classList.remove("active");
+  });
+
+  // Show all by default
+  filterNews();
 });
