@@ -20,8 +20,21 @@ class breakingnews(models.Model):
         return self.title
 
 class homepagearticle(models.Model):
+    news_catagory=models.CharField(max_length=10,default="Odisha")
     image=models.CharField(max_length=10)
     title=models.CharField(max_length=100)
+    news_author=models.CharField(max_length=20,default="Bureau Report")
+    published_date=models.DateTimeField(default=datetime.now)
+    description=models.TextField(default="No description provided")
+
+    def __str__(self):
+        return self.title
+    
+class homepagevideo(models.Model):
+    news_catagory=models.CharField(max_length=10,default="Odisha")
+    image=models.CharField(max_length=10)
+    title=models.CharField(max_length=100)
+    news_author=models.CharField(max_length=20,default="Bureau Report")
     published_date=models.DateTimeField(default=datetime.now)
     description=models.TextField(default="No description provided")
 

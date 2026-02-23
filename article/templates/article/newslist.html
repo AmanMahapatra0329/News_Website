@@ -13,9 +13,9 @@
         <!-- <img src="https://picsum.photos/800/500?random=1" alt="AI Economy"> -->
          <span>{{art.image}}</span>
       </div>
-      <div class="news-category">Technology</div>
+      <div class="news-category">{{art.news_catagory}}</div>
       <div class="news-title"><a href="abcd">{{art.title}}</a></div>
-      <div class="news-author">Editorial Team</div>
+      <div class="news-author">{{art.news_author}}</div>
       <div class="news-date">{{art.published_date}}</div>
       <div class="news-description">{{art.description}}</div>
       <div class="news-full" style="display:none;">Full detailed article content about AI economy impact in 2026...</div>
@@ -28,7 +28,7 @@
     </div>
 {% endfor %}
     <!-- ARTICLE CARD 2 -->
-    <div class="news-card">
+    <!-- <div class="news-card">
       <div class="news-type" style="display:none;">article</div>
       <div class="news-image">
         <img src="https://picsum.photos/800/500?random=3" alt="Space Exploration">
@@ -45,10 +45,10 @@
         <div class="share-btn mail">✉</div>
         <div class="share-btn more">+</div>
       </div>
-    </div>
+    </div> -->
 
     <!-- ARTICLE CARD 3 -->
-    <div class="news-card">
+    <!-- <div class="news-card">
       <div class="news-type" style="display:none;">article</div>
       <div class="news-image">
         <img src="https://picsum.photos/800/500?random=4" alt="Green Energy">
@@ -65,20 +65,22 @@
         <div class="share-btn mail">✉</div>
         <div class="share-btn more">+</div>
       </div>
-    </div>
+    </div> -->
 
     <!-- VIDEO CARD 1 -->
+     {% for vid in videos %}
     <div class="news-card" data-video="videos/election.mp4">
       <div class="news-type" style="display:none;">video</div>
       <div class="news-image">
-        <img src="https://picsum.photos/800/500?random=5" alt="Election Results">
+        <!-- <img src="https://picsum.photos/800/500?random=5" alt="Election Results"> -->
+         <span>{{vid.image}}</span>
         <div class="video-play">&#9658;</div>
       </div>
-      <div class="news-category">World</div>
-      <div class="news-title"><a href="#">Election Results Explained</a></div>
-      <div class="news-author">Global Desk</div>
-      <div class="news-date">Jan 18, 2026</div>
-      <div class="news-description">Watch full breakdown of international political shifts.</div>
+      <div class="news-category">{{vid.news_catagory}}</div>
+      <div class="news-title"><a href="#">{{vid.title}}</a></div>
+      <div class="news-author">{{vid.news_author}}</div>
+      <div class="news-date">{{vid.published_date}}</div>
+      <div class="news-description">{{vid.description}}</div>
       <div class="news-full" style="display:none;">Video detailed explanation about elections, votes, and analysis...</div>
       <div class="news-share">
         <div class="share-btn fb">F</div>
@@ -88,7 +90,7 @@
       </div>
     </div>
 
-    <!-- VIDEO CARD 2 -->
+    <!-- VIDEO CARD 2
     <div class="news-card" data-video="videos/tech-review.mp4">
       <div class="news-type" style="display:none;">video</div>
       <div class="news-image">
@@ -107,9 +109,9 @@
         <div class="share-btn mail">✉</div>
         <div class="share-btn more">+</div>
       </div>
-    </div>
-
-  </div>
+    </div> -->
+    {% endfor %}
+  </div> 
 </section>
 <script src="{% static 'js/newslist.js' %}"></script>
 {% endblock %}
