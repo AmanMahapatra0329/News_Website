@@ -3,21 +3,23 @@
 {% block articlecart %}
 <link rel="stylesheet" href="{% static 'css/newslist.css' %}">
 <!-- News Section -->
+<span>{{ page_obj.paginator.count }}</span>
 <section class="news-section">
   <div id="newsContainer" class="news-grid">
-{% for art in articles %}
+
     <!-- ARTICLE CARD 1 -->
+    {% for pb in page_obj %}
     <div class="news-card">
       <div class="news-type" style="display:none;">article</div>
       <div class="news-image">
         <!-- <img src="https://picsum.photos/800/500?random=1" alt="AI Economy"> -->
-         <span>{{art.image}}</span>
+         <span>{{pb.image}}</span>
       </div>
-      <div class="news-category">{{art.news_catagory}}</div>
-      <div class="news-title"><a href="abcd">{{art.title}}</a></div>
-      <div class="news-author">{{art.news_author}}</div>
-      <div class="news-date">{{art.published_date}}</div>
-      <div class="news-description">{{art.description}}</div>
+      <div class="news-category">{{pb.news_catagory}}</div>
+      <div class="news-title"><a href="abcd">{{pb.title}}</a></div>
+      <div class="news-author">{{pb.news_author}}</div>
+      <div class="news-date">{{pb.published_date}}</div>
+      <div class="news-description">{{pb.description}}</div>
       <div class="news-full" style="display:none;">Full detailed article content about AI economy impact in 2026...</div>
       <div class="news-share">
         <div class="share-btn fb">F</div>
@@ -27,6 +29,15 @@
       </div>
     </div>
 {% endfor %}
+<div>
+{% if page_obj.has_previous %}
+<a href="?page={{page_obj.previous_page_number}}"><button type="button">Previous Page</button></a>
+{% endif %}
+<span> Page {{ page_obj.number }}</span>
+{% if page_obj.has_next %}
+<a href="?page={{page_obj.next_page_number}}"><button type="button">Next Page</button></a>
+{% endif %}
+</div>
     <!-- ARTICLE CARD 2 -->
     <!-- <div class="news-card">
       <div class="news-type" style="display:none;">article</div>
@@ -68,11 +79,11 @@
     </div> -->
 
     <!-- VIDEO CARD 1 -->
-     {% for vid in videos %}
+     <!-- {% for vid in videos %}
     <div class="news-card" data-video="videos/election.mp4">
       <div class="news-type" style="display:none;">video</div>
       <div class="news-image">
-        <!-- <img src="https://picsum.photos/800/500?random=5" alt="Election Results"> -->
+        <img src="https://picsum.photos/800/500?random=5" alt="Election Results">
          <span>{{vid.image}}</span>
         <div class="video-play">&#9658;</div>
       </div>
@@ -88,7 +99,7 @@
         <div class="share-btn mail">✉</div>
         <div class="share-btn more">+</div>
       </div>
-    </div>
+    </div> -->
 
     <!-- VIDEO CARD 2
     <div class="news-card" data-video="videos/tech-review.mp4">
@@ -110,7 +121,7 @@
         <div class="share-btn more">+</div>
       </div>
     </div> -->
-    {% endfor %}
+    <!-- {% endfor %} -->
   </div> 
 </section>
 <script src="{% static 'js/newslist.js' %}"></script>
