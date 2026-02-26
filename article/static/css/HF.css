@@ -41,7 +41,8 @@ body{
   overflow:hidden;
   white-space:nowrap;
   padding:8px 0;
-  font-size:14px;
+  font-size:15px;
+  font-weight: bold;
 }
 
 .ticker span{
@@ -78,8 +79,9 @@ body{
 }
 
 .logo{
-  font-size:22px;
+  font-size:25px;
   font-weight:800;
+  color: black;
 }
 
 .nav{
