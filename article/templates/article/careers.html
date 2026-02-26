@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Careers - YourNews</title>
+  <link rel="stylesheet" href="careers.css">
+</head>
+<body>
+
+<section class="careers">
+  <div class="container">
+
+    <h1>Careers at YourNews</h1>
+    <p class="subtitle">Join our independent newsroom.</p>
+
+    <!-- ================= JOB LISTING ================= -->
+    <div class="job">
+      <h2>Frontend Developer</h2>
+
+      <!-- EDIT THIS -->
+      <p>Location: Remote</p>
+
+      <!-- EDIT THIS -->
+      <p>Experience: 1-3 Years</p>
+
+      <button onclick="showForm()">Apply Now</button>
+    </div>
+
+    <!-- ================= APPLICATION FORM ================= -->
+    <div id="applicationForm" class="application-form">
+      <h2>Apply for Position</h2>
+
+      <form id="careerForm">
+        <input type="text" placeholder="Full Name" required>
+        <input type="email" placeholder="Email Address" required>
+        <input type="text" placeholder="LinkedIn Profile URL">
+        <textarea placeholder="Why should we hire you?" required></textarea>
+        <button type="submit">Submit Application</button>
+      </form>
+
+      <p id="careerResponse"></p>
+    </div>
+
+  </div>
+</section>
+
+<script src="careers.js"></script>
+</body>
+</html>

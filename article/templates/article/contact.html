@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Contact Us - YourNews</title>
+  <link rel="stylesheet" href="contact.css">
+</head>
+<body>
+
+<section class="contact">
+  <div class="container">
+
+    <h1>Contact Our Newsroom</h1>
+    <p class="subtitle">We value transparency and open communication.</p>
+
+    <!-- ================= NEWSROOM INFO ================= -->
+    <div class="contact-info">
+
+      <!-- EDIT THIS: Change to your official email -->
+      <p><strong>Newsroom Email:</strong> newsroom@yournews.com</p>
+
+      <!-- EDIT THIS: Add your business email -->
+      <p><strong>Business Inquiries:</strong> business@yournews.com</p>
+
+      <!-- EDIT THIS: Add your location -->
+      <p><strong>Head Office:</strong> Bhubaneswar, India</p>
+
+    </div>
+
+    <!-- ================= CONTACT FORM ================= -->
+    <div class="contact-form">
+      <h2>Send Us a Message</h2>
+
+      <form id="contactForm">
+        <input type="text" placeholder="Full Name" required>
+        <input type="email" placeholder="Email Address" required>
+        <select required>
+          <option value="">Select Inquiry Type</option>
+          <option>General Inquiry</option>
+          <option>Report an Issue</option>
+          <option>Submit a News Tip</option>
+          <option>Business Proposal</option>
+        </select>
+        <textarea placeholder="Write your message..." required></textarea>
+        <button type="submit">Submit Message</button>
+      </form>
+
+      <p id="responseMessage"></p>
+    </div>
+
+  </div>
+</section>
+
+<script src="contact.js"></script>
+</body>
+</html>

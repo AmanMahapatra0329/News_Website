@@ -1,0 +1,39 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: #f5f7fa;
+}
+
+.careers {
+  padding: 80px 20px;
+}
+
+.container {
+  max-width: 800px;
+  margin: auto;
+}
+
+.job {
+  background: white;
+  padding: 25px;
+  border-radius: 10px;
+  margin-bottom: 40px;
+}
+
+button {
+  padding: 10px 20px;
+  background: black;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.application-form {
+  display: none;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
