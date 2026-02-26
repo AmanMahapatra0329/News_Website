@@ -8,7 +8,7 @@
 {% block HFinsertion %}
 
 <!-- <title>Premium News Hero</title> -->
-<link rel="stylesheet" href="{% static 'css/mainpage.css' %}?v=124">
+<link rel="stylesheet" href="{% static 'css/mainpage.css' %}?v=125">
 <!-- </head>
 <body> -->
 
@@ -20,7 +20,7 @@
     {% for hr in hero %}
     <div class="slide active" data-title={{hr.title}}
          data-desc={{hr.desctiption}}
-         image="{{hr.image}}"></div>
+        ><img src="{{hr.image.url}}" alt="{{hr.title}}"></div>
          {% endfor %}
 
     <!-- <div class="slide"

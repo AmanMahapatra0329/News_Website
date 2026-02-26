@@ -217,9 +217,7 @@ body{
 }
 
 /* Glass effect content panel */
-.hero-content{
-  backdrop-filter:blur(8px);
-}
+
 
 /* Premium Title Gradient */
 .hero-content h1{
