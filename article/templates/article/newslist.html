@@ -5,7 +5,7 @@
 <!-- News Section -->
 <section class="news-section">
   <div id="newsContainer" class="news-grid">
-    <!-- ARTICLE CARD 1 -->
+    <!-- ARTICLE CARD  -->
     {% for pb in page_obj %}
     <div class="news-card">
       <div class="news-type" style="display:none;">article</div>
@@ -42,90 +42,6 @@
 <a href="?page={{page_obj.next_page_number}}"><button type="button">Next Page</button></a>
 {% endif %}
 </span>
-    <!-- ARTICLE CARD 2 -->
-    <!-- <div class="news-card">
-      <div class="news-type" style="display:none;">article</div>
-      <div class="news-image">
-        <img src="https://picsum.photos/800/500?random=3" alt="Space Exploration">
-      </div>
-      <div class="news-category">Science</div>
-      <div class="news-title"><a href="#">Mars Mission Update: Key Discoveries</a></div>
-      <div class="news-author">Space Desk</div>
-      <div class="news-date">Jan 21, 2026</div>
-      <div class="news-description">NASA releases findings from the latest Mars rover mission.</div>
-      <div class="news-full" style="display:none;">Full article about Mars discoveries, samples, and analysis...</div>
-      <div class="news-share">
-        <div class="share-btn fb">F</div>
-        <div class="share-btn tw">M</div>
-        <div class="share-btn mail">✉</div>
-        <div class="share-btn more">+</div>
-      </div>
-    </div> -->
-
-    <!-- ARTICLE CARD 3 -->
-    <!-- <div class="news-card">
-      <div class="news-type" style="display:none;">article</div>
-      <div class="news-image">
-        <img src="https://picsum.photos/800/500?random=4" alt="Green Energy">
-      </div>
-      <div class="news-category">Environment</div>
-      <div class="news-title"><a href="#">Green Energy Projects Surge in 2026</a></div>
-      <div class="news-author">Eco Watch</div>
-      <div class="news-date">Jan 22, 2026</div>
-      <div class="news-description">Renewable energy installations are reaching new heights this year.</div>
-      <div class="news-full" style="display:none;">Full article on green energy expansion, solar, wind, and hydro projects...</div>
-      <div class="news-share">
-        <div class="share-btn fb">F</div>
-        <div class="share-btn tw">M</div>
-        <div class="share-btn mail">✉</div>
-        <div class="share-btn more">+</div>
-      </div>
-    </div> -->
-
-    <!-- VIDEO CARD 1 -->
-     <!-- {% for vid in videos %}
-    <div class="news-card" data-video="videos/election.mp4">
-      <div class="news-type" style="display:none;">video</div>
-      <div class="news-image">
-        <img src="https://picsum.photos/800/500?random=5" alt="Election Results">
-         <span>{{vid.image}}</span>
-        <div class="video-play">&#9658;</div>
-      </div>
-      <div class="news-category">{{vid.news_catagory}}</div>
-      <div class="news-title"><a href="#">{{vid.title}}</a></div>
-      <div class="news-author">{{vid.news_author}}</div>
-      <div class="news-date">{{vid.published_date}}</div>
-      <div class="news-description">{{vid.description}}</div>
-      <div class="news-full" style="display:none;">Video detailed explanation about elections, votes, and analysis...</div>
-      <div class="news-share">
-        <div class="share-btn fb">F</div>
-        <div class="share-btn tw">M</div>
-        <div class="share-btn mail">✉</div>
-        <div class="share-btn more">+</div>
-      </div>
-    </div> -->
-
-    <!-- VIDEO CARD 2
-    <div class="news-card" data-video="videos/tech-review.mp4">
-      <div class="news-type" style="display:none;">video</div>
-      <div class="news-image">
-        <img src="https://picsum.photos/800/500?random=6" alt="Tech Review">
-        <div class="video-play">&#9658;</div>
-      </div>
-      <div class="news-category">Technology</div>
-      <div class="news-title"><a href="#">Latest Gadget Review</a></div>
-      <div class="news-author">Tech Team</div>
-      <div class="news-date">Jan 23, 2026</div>
-      <div class="news-description">A detailed look at the newest gadgets in 2026.</div>
-      <div class="news-full" style="display:none;">Full video review including specs, performance, and ratings...</div>
-      <div class="news-share">
-        <div class="share-btn fb">F</div>
-        <div class="share-btn tw">M</div>
-        <div class="share-btn mail">✉</div>
-        <div class="share-btn more">+</div>
-      </div>
-    </div> -->
-    <!-- {% endfor %} -->
   </div> 
 </section>
 <script src="{% static 'js/newslist.js' %}"></script>

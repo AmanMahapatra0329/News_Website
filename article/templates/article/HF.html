@@ -7,7 +7,7 @@
   <title>NewsHub</title>
 
   <!-- <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet"> -->
-  <link rel="stylesheet" href="{% static 'css/HF.css'%}?v=123">
+  <link rel="stylesheet" href="{% static 'css/HF.css'%}?v=124">
 </head>
 
 <body>
@@ -56,7 +56,7 @@
 
   <!-- Main Content Placeholder -->
   <main class="content">
-    {% block herosection %}
+    {% block HFinsertion %}
     
     {% endblock %}
 
@@ -71,10 +71,10 @@
 
         <div>
           <h3>About</h3>
-          <a href="#">About Us</a>
-          <a href="#">Contact Us</a>
-          <a href="#">Authors</a>
-          <a href="#">Careers</a>
+          <a href="aboutpage">About Us</a>
+          <a href="contactpage">Contact Us</a>
+          <a href="authorpage">Authors</a>
+          <a href="carrerspage">Careers</a>
         </div>
         <div>
           <h3>Editor's Pick</h3>
