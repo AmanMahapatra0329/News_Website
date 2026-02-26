@@ -41,3 +41,63 @@ nav a.active, .mobile-nav a.active {
   color: #e11d48;
   font-weight: 700;
 }
+.pagination {
+  /* taken OUT of the grid — sits below as a normal block */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  padding: 36px 20px 20px;
+  border-top: 1px solid #222;
+  margin-top: 24px;
+}
+
+.pagination a {
+  text-decoration: none;
+}
+
+.pagination button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 28px;
+  background: #1a1a1a;
+  color: #fff;
+  border: 1px solid #383838;
+  border-radius: 50px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: inherit;
+  letter-spacing: 0.3px;
+  transition: background 0.25s, border-color 0.25s, transform 0.2s, box-shadow 0.25s;
+}
+
+.pagination button:hover {
+  background: #e11d48;
+  border-color: #e11d48;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(225, 29, 72, 0.4);
+}
+
+.pagination button:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+.previous_button_class a button::before {
+  content: "← ";
+}
+
+.next_button_class a button::after {
+  content: " →";
+}
+
+.current_page_class span {
+  font-size: 13px;
+  color: #666;
+  padding: 0 4px;
+  user-select: none;
+  white-space: nowrap;
+}

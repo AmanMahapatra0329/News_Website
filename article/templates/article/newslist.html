@@ -3,10 +3,8 @@
 {% block articlecart %}
 <link rel="stylesheet" href="{% static 'css/newslist.css' %}?v=123">
 <!-- News Section -->
-<span>{{ page_obj.paginator.count }}</span>
 <section class="news-section">
   <div id="newsContainer" class="news-grid">
-
     <!-- ARTICLE CARD 1 -->
     {% for pb in page_obj %}
     <div class="news-card">
@@ -29,15 +27,21 @@
       </div>
     </div>
 {% endfor %}
-<div>
+</div>
+<div class="pagination">
+  <span class="previous_button_class">
 {% if page_obj.has_previous %}
-<a href="?page={{page_obj.previous_page_number}}"><button type="button">Previous Page</button></a>
+<a href="?page={{page_obj.previous_page_number}}"><button  type="button">Previous Page</button></a>
 {% endif %}
+</span>
+<span class="current_page_class">
 <span> Page {{ page_obj.number }}</span>
+</span>
+<span class="next_button_class">
 {% if page_obj.has_next %}
 <a href="?page={{page_obj.next_page_number}}"><button type="button">Next Page</button></a>
 {% endif %}
-</div>
+</span>
     <!-- ARTICLE CARD 2 -->
     <!-- <div class="news-card">
       <div class="news-type" style="display:none;">article</div>
