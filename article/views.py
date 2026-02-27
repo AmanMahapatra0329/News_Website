@@ -1,5 +1,5 @@
 from django.core.paginator import Paginator
-from django.shortcuts import render
+from django.shortcuts import render,get_object_or_404
 from .models import Herosection,breakingnews,homepagearticle
 
 # Create your views here.
@@ -18,6 +18,12 @@ def temp(request):
 #     breaking=breakingnews.objects.all()
 #     return render(request,'article/newscard.html',{"breaking":breaking})
 
+
+
+# def article_detail(request, id):
+#     article = get_object_or_404(homepagearticle, id=id)
+#     return render(request, "article/article_detail.html", {"article": article})
+
 def listing(request):
     article_list=homepagearticle.objects.all()
     paginator=Paginator(article_list,2)
@@ -33,3 +39,6 @@ def authorspagerender(request):
     return render(request,'article/authors.html')
 def careerspagerender(request):
     return render(request,'article/careers.html')
+
+
+

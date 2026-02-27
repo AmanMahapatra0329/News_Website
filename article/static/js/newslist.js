@@ -41,7 +41,8 @@ document.addEventListener("DOMContentLoaded", function(){
         videoUrl: card.dataset.video || ""
       };
       localStorage.setItem("selectedArticle", JSON.stringify(data));
-      window.location.href = "article.html";
+      // window.location.href = "article.html";
+      window.location.href = card.dataset.url;
     });
   });
 
@@ -114,4 +115,60 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Show all by default
   filterNews();
+});   
+
+
+// ================= SHARE INDIVIDUAL ARTICLE =================
+
+document.addEventListener("DOMContentLoaded", function () {
+
+  const cards = document.querySelectorAll(".news-card");
+
+  cards.forEach(card => {
+
+    const titleElement = card.querySelector(".news-title a");
+    const title = titleElement.innerText;
+    const articleUrl = titleElement.href;  // 👈 Individual article link
+    const description = card.querySelector(".news-description").innerText;
+
+    // Facebook
+    card.querySelector(".share-btn.fb").addEventListener("click", function (e) {
+      e.stopPropagation();
+      const fbUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(articleUrl)}`;
+      window.open(fbUrl, "_blank");
+    });
+
+    // Twitter / X
+    card.querySelector(".share-btn.tw").addEventListener("click", function (e) {
+      e.stopPropagation();
+      const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(title)}&url=${encodeURIComponent(articleUrl)}`;
+      window.open(twitterUrl, "_blank");
+    });
+
+    // Email
+    card.querySelector(".share-btn.mail").addEventListener("click", function (e) {
+      e.stopPropagation();
+      const mailUrl = `mailto:?subject=${encodeURIComponent(title)}&body=${encodeURIComponent(description + "\n\n" + articleUrl)}`;
+      window.location.href = mailUrl;
+    });
+
+    // Copy Link
+    card.querySelector(".share-btn.more").addEventListener("click", function (e) {
+      e.stopPropagation();
+      navigator.clipboard.writeText(articleUrl).then(() => {
+        alert("Article link copied!");
+      });
+    });
+
+  });
+
+});
+// WhatsApp
+card.querySelector(".share-btn.wa").addEventListener("click", function (e) {
+  e.stopPropagation();
+  
+  const message = `${title}\n\n${articleUrl}`;
+  const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(message)}`;
+  
+  window.open(whatsappUrl, "_blank");
 });

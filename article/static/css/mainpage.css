@@ -11,7 +11,7 @@ body{
 
 .hero{
   position:relative;
-  height:75vh;   /* or 80vh for bigger hero */
+  height:55vh;   /* or 80vh for bigger hero */
   overflow:hidden;
   color:white;
 }
@@ -27,6 +27,10 @@ body{
   transform:scale(1.1);
   transition:opacity 1.2s ease, transform 10s ease;
   overflow:hidden;
+}
+.slide.active{
+  opacity:1;
+  transform:scale(1);
 }
 
 /* IMPORTANT FIX */

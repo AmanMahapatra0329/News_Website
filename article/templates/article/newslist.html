@@ -8,6 +8,7 @@
     <!-- ARTICLE CARD  -->
     {% for pb in page_obj %}
     <div class="news-card">
+      
       <div class="news-type" style="display:none;">article</div>
       <div class="news-image">
         <img src="{{pb.image.url}}" alt="{{pb.title}}">
@@ -22,6 +23,7 @@
         <div class="share-btn fb">F</div>
         <div class="share-btn tw">M</div>
         <div class="share-btn mail">✉</div>
+        <div class="share-btn wa">W</div>
         <div class="share-btn more">+</div>
       </div>
     </div>

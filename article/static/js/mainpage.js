@@ -51,15 +51,22 @@ function animateProgress(){
 const articlesBtn = document.getElementById("articlesBtn");
 const videosBtn = document.getElementById("videosBtn");
 
-articlesBtn.addEventListener("click", ()=>{
-  articlesBtn.classList.add("active");
-  videosBtn.classList.remove("active");
-});
 
-videosBtn.addEventListener("click", ()=>{
-  videosBtn.classList.add("active");
-  articlesBtn.classList.remove("active");
-});
 
-updateContent(0);
+if (articlesBtn && videosBtn) {
+  articlesBtn.addEventListener("click", ()=>{
+    articlesBtn.classList.add("active");
+    videosBtn.classList.remove("active");
+  });
+
+  videosBtn.addEventListener("click", ()=>{
+    videosBtn.classList.add("active");
+    articlesBtn.classList.remove("active");
+  });
+}
+
+if (slides.length > 0) {
+  updateContent(0);
+  restartTimer();
+}
 restartTimer();

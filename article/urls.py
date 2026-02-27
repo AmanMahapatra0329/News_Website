@@ -8,4 +8,5 @@ urlpatterns = [
    path('contactpage',views.contactpagerender,name='contactpage'),
    path('carrerspage',views.careerspagerender,name='careerspage'),
    path('authorpage',views.authorspagerender,name='authorpage'),
+   #  path("article/<int:id>/", views.article_detail, name="article_detail"),
 ]

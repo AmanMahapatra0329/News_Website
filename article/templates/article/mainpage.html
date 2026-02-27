@@ -15,14 +15,17 @@
 <section class="hero">
 
   <!-- Slides -->
-   
-  <div class="slides">
-    {% for hr in hero %}
-    <div class="slide active" data-title={{hr.title}}
-         data-desc={{hr.desctiption}}
-        ><img src="{{hr.image.url}}" alt="{{hr.title}}"></div>
-         {% endfor %}
-
+   <div class="slides">
+  {% for hr in hero %}
+  <div class="slide {% if forloop.first %}active{% endif %}"
+       data-title="{{ hr.title }}"
+       data-desc="{{  hr.description }}">
+    <img src="{{ hr.image.url }}" alt="{{ hr.title }}">
+  </div>
+  {% endfor %}
+</div>
+  
+    
     <!-- <div class="slide"
          data-title="Elections Reshape International Alliances"
          data-desc="New leadership brings strategic changes across continents."
@@ -32,7 +35,7 @@
          data-title="Technology Giants Enter AI Arms Race"
          data-desc="Innovation accelerates as firms compete for dominance."
          style="background-image:url('demo3.jpg')"></div> -->
-  </div>
+  
 
   <!-- Overlay -->
   <div class="overlay"></div>
@@ -45,7 +48,7 @@
 
     <div class="buttons">
       <button class="primary">Read Story</button>
-      -->
+      
     </div>
   </div>
 
