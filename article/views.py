@@ -12,8 +12,9 @@ def homepage(request):
     page_obj = paginator.get_page(page_number)
     return render(request,'article/newslist.html',{"hero":hero,"breaking":breaking,"page_obj":page_obj})
 
-def temp(request):
-    return render(request,"article/article.html")
+def temp(request,slug):
+    article=homepagearticle.objects.get(slug=slug)
+    return render(request,"article/article.html",{"article":article})
 # def breakingnews_text(request):
 #     breaking=breakingnews.objects.all()
 #     return render(request,'article/newscard.html',{"breaking":breaking})

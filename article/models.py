@@ -1,5 +1,6 @@
 from django.db import models
 from datetime import datetime
+from django.utils.text import slugify
 
 class Herosection(models.Model):
     title=models.CharField(max_length=1000)
@@ -26,6 +27,18 @@ class homepagearticle(models.Model):
     news_author=models.CharField(max_length=20,default="Bureau Report")
     published_date=models.DateTimeField(default=datetime.now)
     description=models.TextField(default="No description provided")
+    content=models.TextField(default='No news yet.')
+    slug=models.SlugField(unique=True,blank=True)
+
+    def save(self,*args,**kwargs):
+        base_slug=slugify(self.title)
+        slug=base_slug
+        counter=1
+        while homepagearticle.objects.filter(slug=slug).exists():
+            slug=f"{base_slug}-{counter}"
+            counter+=1
+        self.slug=slug
+        super().save(*args,**kwargs)
 
     def __str__(self):
         return self.title

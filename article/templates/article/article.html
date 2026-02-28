@@ -3,7 +3,10 @@
 
 {% block HFinsertion %}
 <link rel="stylesheet" href="{% static 'css/article.css' %}">
-
+<p>{{ article.slug }}</p>
+<p>{{ article.title }}</p>
+<p>{{ article.content }}</p>
+<img src="{{article.image.url}}" alt="Not available">
 <div class="article-wrapper">
   <div id="articleContainer"></div>
 </div>
