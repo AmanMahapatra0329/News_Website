@@ -2,14 +2,33 @@
 {% load static %}
 
 {% block HFinsertion %}
-<link rel="stylesheet" href="{% static 'css/article.css' %}">
-<p>{{ article.slug }}</p>
-<p>{{ article.title }}</p>
-<p>{{ article.content }}</p>
-<img src="{{article.image.url}}" alt="Not available">
-<div class="article-wrapper">
-  <div id="articleContainer"></div>
+<link rel="stylesheet" href="{% static 'css/article.css' %}?v=128">
+<div class="article-page">
+  <div class="article-container">
+    <!-- Category -->
+    <div class="article-category">
+      {{ article.news_catagory }}
+    </div>
+    <!-- Title -->
+    <h1 class="article-title">
+      {{ article.odia_title }}
+    </h1>
+    <!-- Author + Date -->
+    <div class="article-meta">
+      By {{ article.news_author }} | {{ article.published_date }}
+    </div>
+    <!-- Image -->
+    <div class="article-image">
+      <img src="{{ article.image.url }}" alt="{{ article.title }}">
+    </div>
+    <!-- Short Description -->
+    <div class="article-description">
+      {{ article.description }}
+    </div>
+    <!-- Full Content -->
+    <div class="article-content">
+      {{ article.content }}
+    </div>
+  </div>
 </div>
-
-<script src="{% static 'js/article.js' %}"></script>
 {% endblock %}

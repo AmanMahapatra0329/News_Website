@@ -1,9 +1,143 @@
-body{ margin:0; font-family:Arial,sans-serif; background:#111; color:#fff; }
-.article-wrapper{ max-width:900px; margin:40px auto; padding:0 20px; }
-.article-category{ color:#ff0047; font-size:13px; font-weight:bold; text-transform:uppercase; margin-bottom:10px; }
-.article-title{ font-size:32px; font-weight:700; margin-bottom:15px; line-height:1.3; }
-.article-meta{ font-size:14px; color:#aaa; margin-bottom:20px; }
-.article-image{ width:100%; height:450px; object-fit:cover; border-radius:8px; margin-bottom:25px; }
-.article-content{ font-size:16px; line-height:1.8; color:#ddd; }
-.back-btn{ margin-bottom:25px; display:inline-block; color:#fff; text-decoration:none; font-size:14px; background:#222; padding:8px 14px; border-radius:6px; transition:.3s; }
-.back-btn:hover{ background:#ff0047; }
+/* ================================================
+   article.css — Dark News Article Page
+   ================================================ */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #111;
+  color: #fff;
+}
+
+/* ── Page & Container ───────────────────────── */
+.article-page {
+  background: #111;
+  min-height: 100vh;
+  padding: 40px 20px;
+}
+
+.article-container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* ── Back Button ────────────────────────────── */
+.article-back-btn {
+  display: inline-block;
+  margin-bottom: 25px;
+  color: #fff;
+  text-decoration: none;
+  font-size: 14px;
+  background: #222;
+  padding: 8px 14px;
+  border-radius: 6px;
+  transition: background 0.3s;
+}
+
+.article-back-btn:hover {
+  background: #ff0047;
+}
+
+/* ── Category ───────────────────────────────── */
+.article-category {
+  color: #ff0047;
+  font-size: 13px;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+/* ── Title ──────────────────────────────────── */
+.article-title {
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1.3;
+  margin-bottom: 15px;
+}
+
+/* ── Meta ───────────────────────────────────── */
+.article-meta {
+  font-size: 14px;
+  color: #aaa;
+  margin-bottom: 20px;
+}
+
+/* ── Image ──────────────────────────────────── */
+.article-image img {
+  width: 100%;
+  height: 450px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 25px;
+  display: block;
+}
+
+/* ── Description ────────────────────────────── */
+.article-description {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #bbb;
+  font-style: italic;
+  margin-bottom: 20px;
+  border-left: 3px solid #ff0047;
+  padding-left: 14px;
+}
+
+/* ── Content ────────────────────────────────── */
+.article-content {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #ddd;
+}
+
+.article-content p {
+  margin-bottom: 1.2rem;
+}
+
+.article-content a {
+  color: #ff0047;
+  text-decoration: underline;
+}
+
+.article-content a:hover {
+  color: #ff4477;
+}
+
+.article-content h2 {
+  font-size: 22px;
+  font-weight: 700;
+  color: #fff;
+  margin: 2rem 0 0.75rem;
+}
+
+.article-content h3 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #eee;
+  margin: 1.5rem 0 0.5rem;
+}
+
+.article-content blockquote {
+  border-left: 3px solid #ff0047;
+  padding: 0.75rem 1rem;
+  margin: 1.5rem 0;
+  background: #1a1a1a;
+  color: #bbb;
+  font-style: italic;
+}
+
+/* ── Responsive ─────────────────────────────── */
+@media (max-width: 600px) {
+  .article-title {
+    font-size: 24px;
+  }
+
+  .article-image img {
+    height: 220px;
+  }
+}

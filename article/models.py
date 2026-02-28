@@ -24,6 +24,7 @@ class homepagearticle(models.Model):
     news_catagory=models.CharField(max_length=10,default="Odisha")
     image=models.ImageField(upload_to='articles/')
     title=models.CharField(max_length=100)
+    odia_title=models.CharField(max_length=100,blank=True)
     news_author=models.CharField(max_length=20,default="Bureau Report")
     published_date=models.DateTimeField(default=datetime.now)
     description=models.TextField(default="No description provided")
