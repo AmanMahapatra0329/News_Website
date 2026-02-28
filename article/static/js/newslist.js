@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", function(){
         videoUrl: card.dataset.video || ""
       };
       localStorage.setItem("selectedArticle", JSON.stringify(data));
-      // window.location.href = "article.html";
+      window.location.href = "article.html";
       window.location.href = card.dataset.url;
     });
   });
