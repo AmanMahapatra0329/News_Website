@@ -141,3 +141,22 @@ body {
     height: 220px;
   }
 }
+/* ── Article Video ─────────────────────────── */
+.article-video {
+  margin-top: 30px;
+}
+
+.video-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9; /* Makes it responsive */
+  border-radius: 8px;
+  overflow: hidden;
+  background: #000;
+}
+
+.video-wrapper iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}

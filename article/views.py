@@ -1,6 +1,7 @@
 from django.core.paginator import Paginator
-from django.shortcuts import render,get_object_or_404
-from .models import Herosection,breakingnews,homepagearticle
+from django.shortcuts import render,redirect
+from django.contrib import messages
+from .models import Herosection,breakingnews,homepagearticle,contactus
 
 # Create your views here.
 def homepage(request):
@@ -35,7 +36,16 @@ def listing(request):
 def aboutpagerender(request):
     return render(request,'article/about.html')
 def contactpagerender(request):
+    if request.method == 'POST':
+        name=request.POST.get('name')
+        email=request.POST.get('email')
+        inquiry=request.POST.get('inquiry')
+        feedback=request.POST.get('feedback')
+        contactus.objects.create(name=name,email=email,feedback=feedback)
+        messages.success(request,'Feedback submitted successfully.')
+        return redirect('contactpagefeedback') 
     return render(request,'article/contact.html')
+
 def authorspagerender(request):
     return render(request,'article/authors.html')
 def careerspagerender(request):
