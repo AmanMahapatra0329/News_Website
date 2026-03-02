@@ -42,6 +42,11 @@ class homepagearticle(models.Model):
     description=models.TextField(default="No description provided")
     content=models.TextField(default='No news yet.')
     video_link=models.URLField(blank=True, null=True)
+    reporter_image=models.ImageField(upload_to='reporterimage/',default='image not provided.')
+    reporter_name=models.CharField(max_length=100,blank=True)
+    reporter_position=models.CharField(max_length=100,blank=True)
+    reporter_area=models.CharField(max_length=100,blank=True)
+    reporter_phno=models.IntegerField(max_length=10,default=0)
     slug=models.SlugField(unique=True,blank=True)
 
     def save(self,*args,**kwargs):

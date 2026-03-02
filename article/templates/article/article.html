@@ -2,84 +2,126 @@
 {% load static %}
 
 {% block HFinsertion %}
-<<<<<<< HEAD
-<link rel="stylesheet" href="{% static 'css/article.css' %}">
+<link rel="stylesheet" href="{% static 'css/article.css' %}?v=300">
 
-<div class="article-page">
+<div class="article-layout">
 
-  <div class="article-container">
+  <!-- ================= MAIN ARTICLE (LEFT) ================= -->
+  <div class="main-article">
 
-=======
-<link rel="stylesheet" href="{% static 'css/article.css' %}?v=128">
-<div class="article-page">
-  <div class="article-container">
->>>>>>> a8c4056ecbdfe082f8f7cf44fca2dd152eaeacec
     <!-- Category -->
     <div class="article-category">
       {{ article.news_catagory }}
     </div>
-<<<<<<< HEAD
 
     <!-- Title -->
     <h1 class="article-title">
       {{ article.title }}
     </h1>
 
-=======
-    <!-- Title -->
-    <h1 class="article-title">
-      {{ article.odia_title }}
-    </h1>
->>>>>>> a8c4056ecbdfe082f8f7cf44fca2dd152eaeacec
     <!-- Author + Date -->
     <div class="article-meta">
       By {{ article.news_author }} | {{ article.published_date }}
     </div>
-<<<<<<< HEAD
 
-=======
->>>>>>> a8c4056ecbdfe082f8f7cf44fca2dd152eaeacec
-    <!-- Image -->
+    <!-- Featured Image -->
     <div class="article-image">
       <img src="{{ article.image.url }}" alt="{{ article.title }}">
     </div>
-<<<<<<< HEAD
 
-=======
->>>>>>> a8c4056ecbdfe082f8f7cf44fca2dd152eaeacec
-    <!-- Short Description -->
+    <!-- Description BELOW Image -->
     <div class="article-description">
-      {{ article.description }}
+      {% if article.description %}
+        {{ article.description }}
+      {% endif %}
     </div>
-<<<<<<< HEAD
 
     <!-- Full Content -->
     <div class="article-content">
-      {{ article.full_content }}
+      {{ article.content|linebreaks }}
+    </div>
+
+    <!-- ================= REPORTER CARD ================= -->
+    <div class="reporter-card">
+      <img src="{{ article.reporter_image.url }}" alt="{{ article.reporter_name }}">
+      <div class="reporter-info">
+        <h3>{{ article.reporter_name }}</h3>
+        <p><strong>Position:</strong> {{ article.reporter_position }}</p>
+        <p><strong>Area:</strong> {{ article.reporter_area }}</p>
+        <p><strong>Phone:</strong> {{ article.reporter_phno }}</p>
+      </div>
+    </div>
+
+    <!-- ================= COMMENT SECTION ================= -->
+    <div class="comment-section">
+      <h2>Leave a Comment</h2>
+
+      <form method="POST">
+        {% csrf_token %}
+        <input type="text" name="name" placeholder="Your Name" required>
+        <textarea name="comment" placeholder="Write your comment..." required></textarea>
+        <button type="submit">Post Comment</button>
+      </form>
+
+      <div class="comments-list">
+        {% for comment in comments %}
+        <div class="comment">
+          <strong>{{ comment.name }}</strong>
+          <p>{{ comment.comment }}</p>
+          <span>{{ comment.created_at }}</span>
+        </div>
+        {% endfor %}
+      </div>
     </div>
 
   </div>
 
-</div>
 
-=======
-    <!-- Full Content -->
-    <div class="article-content">
-      {{ article.content }}
+
+  <!-- ================= SIDEBAR (RIGHT) ================= -->
+  <aside class="sidebar">
+
+    <!-- Related News -->
+    <div class="sidebar-section">
+      <h3>Related News</h3>
+      {% for news in related_news %}
+        <a href="{% url 'article_detail' news.slug %}" class="side-link">
+          <div class="side-card">
+            <img src="{{ news.image.url }}">
+            <p>{{ news.title }}</p>
+          </div>
+        </a>
+      {% endfor %}
     </div>
-  </div>
+
+    <!-- Latest News -->
+    <div class="sidebar-section">
+      <h3>Latest News</h3>
+      {% for news in latest_news %}
+        <a href="{% url 'article_detail' news.slug %}" class="side-link">
+          <p>{{ news.title }}</p>
+        </a>
+      {% endfor %}
+    </div>
+
+    <!-- Trending -->
+    <div class="sidebar-section">
+      <h3>Trending</h3>
+      {% for news in trending_news %}
+        <a href="{% url 'article_detail' news.slug %}" class="side-link">
+          <p>{{ news.title }}</p>
+        </a>
+      {% endfor %}
+    </div>
+
+    <!-- Ad Box -->
+    <div class="sidebar-section ad-box">
+      <h3>Advertisement</h3>
+      <p>Your Ad Here</p>
+    </div>
+
+  </aside>
+
 </div>
 
-<!-- YouTube Video -->
-<!-- {% if article.embed_url %}
-<div class="article-video">
-  <iframe 
-    src="{{ article_vid.embed_url }}"
-    frameborder="0"
-    allowfullscreen>
-  </iframe>
-</div>
-{% endif %} -->
-
->>>>>>> a8c4056ecbdfe082f8f7cf44fca2dd152eaeacec
 {% endblock %}

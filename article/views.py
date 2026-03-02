@@ -55,3 +55,22 @@ def careerspagerender(request):
 
 
 
+def article_detail(request, slug):
+    article = Article.objects.get(slug=slug)
+
+    related_news = Article.objects.filter(
+        news_catagory=article.news_catagory
+    ).exclude(id=article.id)[:3]
+
+    latest_news = Article.objects.order_by('-published_date')[:5]
+    trending_news = Article.objects.order_by('-views')[:5]
+
+    comments = Comment.objects.filter(article=article)
+
+    return render(request, 'article/article.html', {
+        'article': article,
+        'related_news': related_news,
+        'latest_news': latest_news,
+        'trending_news': trending_news,
+        'comments': comments
+    })
