@@ -9,5 +9,5 @@ urlpatterns = [
    path('carrerspage',views.careerspagerender,name='careerspage'),
    path('authorpage',views.authorspagerender,name='authorpage'),
    path('contactusurl',views.contactpagerender,name='contactpagefeedback'),
-   path('herourl',views.homepage,name='heropageurl')
+   #path('herourl',views.heroview,name='heropageurl')
 ]

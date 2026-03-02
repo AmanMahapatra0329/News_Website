@@ -1,7 +1,7 @@
 from django.core.paginator import Paginator
 from django.shortcuts import render,redirect
 from django.contrib import messages
-from .models import Herosection,breakingnews,homepagearticle,contactus
+from .models import Herosection,breakingnews,homepagearticle,contactus,authorpage
 
 # Create your views here.
 def homepage(request):
@@ -16,6 +16,7 @@ def homepage(request):
 def temp(request,slug):
     article=homepagearticle.objects.get(slug=slug)
     return render(request,"article/article.html",{"article":article})
+
 # def breakingnews_text(request):
 #     breaking=breakingnews.objects.all()
 #     return render(request,'article/newscard.html',{"breaking":breaking})
@@ -47,7 +48,8 @@ def contactpagerender(request):
     return render(request,'article/contact.html')
 
 def authorspagerender(request):
-    return render(request,'article/authors.html')
+    authors=authorpage.objects.all()
+    return render(request,'article/authors.html',{"authors":authors})
 def careerspagerender(request):
     return render(request,'article/careers.html')
 

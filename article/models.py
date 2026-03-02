@@ -66,3 +66,13 @@ class contactus(models.Model):
 
     def __str__(self):
         return self.name
+
+class authorpage(models.Model):
+    title=models.CharField(max_length=100)
+    position=models.CharField(max_length=1000)
+    description=models.TextField()
+    mail=models.EmailField()
+    image=models.ImageField(upload_to='authorpage/')
+
+    def __str__(self):
+        return self.title
