@@ -1,6 +1,7 @@
 from django.core.paginator import Paginator
-from django.shortcuts import render,get_object_or_404
-from .models import Herosection,breakingnews,homepagearticle
+from django.shortcuts import render,redirect
+from django.contrib import messages
+from .models import Herosection,breakingnews,homepagearticle,contactus,authorpage
 
 # Create your views here.
 def homepage(request):
@@ -12,8 +13,10 @@ def homepage(request):
     page_obj = paginator.get_page(page_number)
     return render(request,'article/newslist.html',{"hero":hero,"breaking":breaking,"page_obj":page_obj})
 
-def temp(request):
-    return render(request,"article/article.html")
+def temp(request,slug):
+    article=homepagearticle.objects.get(slug=slug)
+    return render(request,"article/article.html",{"article":article})
+
 # def breakingnews_text(request):
 #     breaking=breakingnews.objects.all()
 #     return render(request,'article/newscard.html',{"breaking":breaking})
@@ -34,9 +37,19 @@ def listing(request):
 def aboutpagerender(request):
     return render(request,'article/about.html')
 def contactpagerender(request):
+    if request.method == 'POST':
+        name=request.POST.get('name')
+        email=request.POST.get('email')
+        inquiry=request.POST.get('inquiry')
+        feedback=request.POST.get('feedback')
+        contactus.objects.create(name=name,email=email,feedback=feedback)
+        messages.success(request,'Feedback submitted successfully.')
+        return redirect('contactpagefeedback') 
     return render(request,'article/contact.html')
+
 def authorspagerender(request):
-    return render(request,'article/authors.html')
+    authors=authorpage.objects.all()
+    return render(request,'article/authors.html',{"authors":authors})
 def careerspagerender(request):
     return render(request,'article/careers.html')
 

@@ -3,10 +3,11 @@ from . import views
 
 urlpatterns = [
    path('',views.homepage,name='HFpage'),
-   path('abcd',views.temp,name='temporarypath'),
+   path('articles/<slug:slug>/',views.temp,name='articlerender'),
    path('aboutpage',views.aboutpagerender,name='aboutpage'),
    path('contactpage',views.contactpagerender,name='contactpage'),
    path('carrerspage',views.careerspagerender,name='careerspage'),
    path('authorpage',views.authorspagerender,name='authorpage'),
-   #  path("article/<int:id>/", views.article_detail, name="article_detail"),
+   path('contactusurl',views.contactpagerender,name='contactpagefeedback'),
+   #path('herourl',views.heroview,name='heropageurl')
 ]

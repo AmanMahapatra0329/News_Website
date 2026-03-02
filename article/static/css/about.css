@@ -1,46 +1,198 @@
-body {
+/* =========================================
+   YourNews — About Us Page
+   Aesthetic: Editorial broadsheet / refined
+   ========================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;1,8..60,300&display=swap');
+
+*, *::before, *::after {
+  box-sizing: border-box;
   margin: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background: #f4f6f9;
-  color: #222;
+  padding: 0;
 }
 
-.about {
-  padding: 80px 20px;
+:root {
+  --ink:       #0d0d0d;
+  --paper:     #ffffff;
+  --cream:     #f5f5f5;
+  --red:       #c0392b;
+  --gold:      #b8860b;
+  --mid:       #5a5047;
+  --light:     #ccc4b8;
+  --rule:      1px solid #c4bbae;
 }
 
-.container {
-  max-width: 900px;
-  margin: auto;
+html {
+  scroll-behavior: smooth;
 }
 
-h1 {
-  font-size: 42px;
-  text-align: center;
-}
-
-.tagline {
-  text-align: center;
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'Source Serif 4', Georgia, serif;
   font-size: 18px;
-  color: #555;
-  margin-bottom: 50px;
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
 }
 
+/* ── Header Banner ── */
+.about {
+  padding: 0 0 100px;
+}
+
+.about > .container {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+/* ── Page Title Block ── */
+.about h1 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(3rem, 8vw, 6rem);
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  padding-top: 80px;
+  padding-bottom: 24px;
+  border-bottom: 3px solid var(--ink);
+  position: relative;
+}
+
+.about h1::before {
+  content: '';
+  display: block;
+  width: 48px;
+  height: 4px;
+  background: var(--red);
+  margin-bottom: 20px;
+}
+
+/* ── Tagline ── */
+.tagline {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-style: italic;
+  font-size: 1.15rem;
+  color: var(--red);
+  letter-spacing: 0.04em;
+  margin-top: 20px;
+  margin-bottom: 64px;
+  text-transform: uppercase;
+}
+
+/* ── Section Dividers ── */
 .section {
-  margin-bottom: 50px;
+  padding: 52px 0;
+  border-bottom: var(--rule);
+  position: relative;
+  opacity: 0;
+  transform: translateY(28px);
+  animation: fadeUp 0.65s ease forwards;
 }
 
-h2 {
-  margin-bottom: 15px;
-  color: #111;
+.section:nth-child(1) { animation-delay: 0.1s; }
+.section:nth-child(2) { animation-delay: 0.22s; }
+.section:nth-child(3) { animation-delay: 0.34s; }
+.section:nth-child(4) { animation-delay: 0.46s; }
+.section:nth-child(5) { animation-delay: 0.58s; }
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-p {
-  line-height: 1.8;
-  font-size: 17px;
+.section:last-child {
+  border-bottom: none;
 }
 
-ul {
-  padding-left: 20px;
-  line-height: 1.8;
+/* ── Section Headings ── */
+.section h2 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.65rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  color: var(--ink);
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.section h2::before {
+  content: '';
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  background: var(--red);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* ── Body Text ── */
+.section p {
+  font-size: 1.05rem;
+  color: #2c2520;
+  max-width: 680px;
+  line-height: 1.85;
+  margin-bottom: 18px;
+}
+
+.section p:last-child {
+  margin-bottom: 0;
+}
+
+/* ── Trust List ── */
+.section ul {
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px 32px;
+  margin-top: 8px;
+}
+
+.section ul li {
+  font-size: 1rem;
+  color: var(--ink);
+  padding: 16px 20px;
+  background: var(--cream);
+  border-left: 3px solid var(--red);
+  border-radius: 2px;
+  letter-spacing: 0.01em;
+  font-weight: 300;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.section ul li:hover {
+  background: #ebebeb;
+  border-color: var(--ink);
+}
+
+/* ── Decorative Rule at Bottom ── */
+.about > .container::after {
+  content: '◆ ◆ ◆';
+  display: block;
+  text-align: center;
+  color: var(--light);
+  font-size: 0.85rem;
+  letter-spacing: 0.5em;
+  margin-top: 72px;
+}
+
+/* ── Responsive ── */
+@media (max-width: 600px) {
+  .section ul {
+    grid-template-columns: 1fr;
+  }
+
+  .about h1 {
+    font-size: 3rem;
+    padding-top: 48px;
+  }
+
+  .about > .container {
+    padding: 0 20px;
+  }
 }

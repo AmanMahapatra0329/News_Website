@@ -2,36 +2,56 @@
 {% load static %}
 
 {% block HFinsertion %}
+<<<<<<< HEAD
 <link rel="stylesheet" href="{% static 'css/article.css' %}">
 
 <div class="article-page">
 
   <div class="article-container">
 
+=======
+<link rel="stylesheet" href="{% static 'css/article.css' %}?v=128">
+<div class="article-page">
+  <div class="article-container">
+>>>>>>> a8c4056ecbdfe082f8f7cf44fca2dd152eaeacec
     <!-- Category -->
     <div class="article-category">
       {{ article.news_catagory }}
     </div>
+<<<<<<< HEAD
 
     <!-- Title -->
     <h1 class="article-title">
       {{ article.title }}
     </h1>
 
+=======
+    <!-- Title -->
+    <h1 class="article-title">
+      {{ article.odia_title }}
+    </h1>
+>>>>>>> a8c4056ecbdfe082f8f7cf44fca2dd152eaeacec
     <!-- Author + Date -->
     <div class="article-meta">
       By {{ article.news_author }} | {{ article.published_date }}
     </div>
+<<<<<<< HEAD
 
+=======
+>>>>>>> a8c4056ecbdfe082f8f7cf44fca2dd152eaeacec
     <!-- Image -->
     <div class="article-image">
       <img src="{{ article.image.url }}" alt="{{ article.title }}">
     </div>
+<<<<<<< HEAD
 
+=======
+>>>>>>> a8c4056ecbdfe082f8f7cf44fca2dd152eaeacec
     <!-- Short Description -->
     <div class="article-description">
       {{ article.description }}
     </div>
+<<<<<<< HEAD
 
     <!-- Full Content -->
     <div class="article-content">
@@ -42,4 +62,24 @@
 
 </div>
 
+=======
+    <!-- Full Content -->
+    <div class="article-content">
+      {{ article.content }}
+    </div>
+  </div>
+</div>
+
+<!-- YouTube Video -->
+<!-- {% if article.embed_url %}
+<div class="article-video">
+  <iframe 
+    src="{{ article_vid.embed_url }}"
+    frameborder="0"
+    allowfullscreen>
+  </iframe>
+</div>
+{% endif %} -->
+
+>>>>>>> a8c4056ecbdfe082f8f7cf44fca2dd152eaeacec
 {% endblock %}

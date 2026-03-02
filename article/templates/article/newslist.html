@@ -1,7 +1,11 @@
 {% extends 'article/mainpage.html' %}
 {% load static %}
 {% block articlecart %}
+<<<<<<< HEAD
 <link rel="stylesheet" href="{% static 'css/newslist.css' %}?v=125">
+=======
+<link rel="stylesheet" href="{% static 'css/newslist.css' %}">
+>>>>>>> a8c4056ecbdfe082f8f7cf44fca2dd152eaeacec
 <!-- News Section -->
 <section class="news-section">
   <div id="newsContainer" class="news-grid">
@@ -14,7 +18,7 @@
         <img src="{{pb.image.url}}" alt="{{pb.title}}">
       </div>
       <div class="news-category">{{pb.news_catagory}}</div>
-      <div class="news-title"><a href="abcd">{{pb.title}}</a></div>
+      <div class="news-title"><a href="{% url 'articlerender' pb.slug %}">{{pb.odia_title}}</a></div>
       <div class="news-author">{{pb.news_author}}</div>
       <div class="news-date">{{pb.published_date}}</div>
       <div class="news-description">{{pb.description}}</div>

@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Contact Us - YourNews</title>
+  <title>Contact Us - Ganjam Today</title>
   <link rel="stylesheet" href="{% static 'css/contact.css' %}">
 </head>
 <body>
@@ -18,7 +18,7 @@
     <div class="contact-info">
 
       <!-- EDIT THIS: Change to your official email -->
-      <p><strong>Newsroom Email:</strong> newsroom@yournews.com</p>
+      <p><strong>Ganjam Today Email:</strong> newsroom@yournews.com</p>
 
       <!-- EDIT THIS: Add your business email -->
       <p><strong>Business Inquiries:</strong> business@yournews.com</p>
@@ -32,17 +32,18 @@
     <div class="contact-form">
       <h2>Send Us a Message</h2>
 
-      <form id="contactForm">
-        <input type="text" placeholder="Full Name" required>
-        <input type="email" placeholder="Email Address" required>
-        <select required>
+      <form method="post" action="{% url 'contactpagefeedback' %}" id="contactForm" >
+        {% csrf_token %}
+        <input type="text" name="name" placeholder="Full Name" required>
+        <input type="email" name="email" placeholder="Email Address" required>
+        <select name="inquiry" required>
           <option value="">Select Inquiry Type</option>
           <option>General Inquiry</option>
           <option>Report an Issue</option>
           <option>Submit a News Tip</option>
           <option>Business Proposal</option>
         </select>
-        <textarea placeholder="Write your message..." required></textarea>
+        <textarea name="feedback" placeholder="Write your message..." required></textarea>
         <button type="submit">Submit Message</button>
       </form>
 
@@ -51,7 +52,12 @@
 
   </div>
 </section>
-
-<script src="{% static 'js/contact.js' %}"></script>
+{% if messages %}
+  {% for message in messages %}
+    <script>
+      alert("{{ message }}");
+    </script>
+  {% endfor %}
+{% endif %}
 </body>
 </html>

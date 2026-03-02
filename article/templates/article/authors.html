@@ -8,37 +8,36 @@
 <body>
 
 <section class="authors">
+  
   <div class="container">
 
     <h1>Meet Our Journalists</h1>
     <p class="subtitle">Independent voices committed to truth.</p>
-
+  {% for author in authors %}
     <!-- ================= AUTHOR CARD ================= -->
     <div class="author-card">
 
       <!-- EDIT THIS: Add image -->
-      <img src="author1.jpg" alt="Journalist">
+      <img src="{{author.image.url}}" alt="Journalist">
 
       <div class="author-info">
         <!-- EDIT THIS -->
-        <h2>Rahul Verma</h2>
+        <h2>{{author.title}}</h2>
 
         <!-- EDIT THIS -->
-        <p class="role">Senior Political Correspondent</p>
+        <p class="role">{{author.position}}</p>
 
         <!-- EDIT THIS -->
         <p>
-          Rahul covers national politics and policy analysis with over
-          8 years of experience in investigative journalism.
+          {{author.description}}
         </p>
 
         <!-- EDIT THIS -->
-        <p class="email">rahul@yournews.com</p>
+        <p class="email">{{author.mail}}</p>
       </div>
-
     </div>
-
   </div>
+  {% endfor %}
 </section>
 
 <script src="{% static 'js/authors.js' %}"></script>
