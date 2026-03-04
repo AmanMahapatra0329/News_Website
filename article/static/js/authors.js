@@ -1,1 +1,0 @@
-console.log("Authors page loaded successfully.");

@@ -1,24 +1,13 @@
 from django.db import models
 from datetime import datetime
 from django.utils.text import slugify
+from django.utils import timezone   
 
 class Herosection(models.Model):
     title=models.CharField(max_length=100)
     description=models.TextField()
     image=models.ImageField(upload_to='Heropage')
-    slug=models.SlugField(blank=True)
     
-    def save(self,*args,**kwargs):
-        if not self.slug:
-            base_slug=slugify(self.title)
-            slug=base_slug
-            counter=1
-            while Herosection.objects.filter(slug=slug).exists():
-                slug=f"{base_slug}-{counter}"
-                counter+=1
-            self.slug=slug
-        super().save(*args,**kwargs)
-
     def __str__(self):
         return self.title
 
@@ -46,7 +35,7 @@ class homepagearticle(models.Model):
     reporter_name=models.CharField(max_length=100,blank=True)
     reporter_position=models.CharField(max_length=100,blank=True)
     reporter_area=models.CharField(max_length=100,blank=True)
-    reporter_phno=models.IntegerField(max_length=10,default=0)
+    reporter_phno=models.IntegerField(default=0)
     slug=models.SlugField(unique=True,blank=True)
 
     def save(self,*args,**kwargs):
@@ -81,3 +70,21 @@ class authorpage(models.Model):
 
     def __str__(self):
         return self.title
+
+class Comment(models.Model):
+    key=models.ForeignKey(homepagearticle,on_delete=models.CASCADE,null=True,blank=True)
+    name=models.CharField(max_length=100)
+    comment=models.TextField()
+    commented_at=models.DateTimeField(default=timezone.now)
+
+    def __str__(self):
+        return self.name
+    
+class Carrer(models.Model):
+    name = models.CharField(max_length=100)
+    email = models.EmailField()
+    profile = models.URLField(null=True, blank=True)
+    skills = models.TextField()  # ✅ changed back to skills
+
+    def __str__(self):
+        return self.name

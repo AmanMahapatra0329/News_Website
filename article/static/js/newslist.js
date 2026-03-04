@@ -1,77 +1,16 @@
 document.addEventListener("DOMContentLoaded", () => {
 
   const cards = document.querySelectorAll(".news-card");
-<<<<<<< HEAD
-  const articlesBtn = document.getElementById("articlesBtn");
-  const videosBtn = document.getElementById("videosBtn");
-
-  function filterNews(type){
-    cards.forEach(card => {
-      const cardType = card.querySelector(".news-type").innerText.trim();
-      card.style.display = (cardType === type) ? "block" : "none";
-    });
-  }
-
-  articlesBtn.addEventListener("click", function(){
-    articlesBtn.classList.add("active");
-    videosBtn.classList.remove("active");
-    filterNews("article");
-  });
-
-  videosBtn.addEventListener("click", function(){
-    videosBtn.classList.add("active");
-    articlesBtn.classList.remove("active");
-    filterNews("video");
-  });
-
-  // Default load
-  filterNews("article");
-
-  // Click → Open article page
-  cards.forEach(card => {
-    card.addEventListener("click", function(){
-      const data = {
-        type: card.querySelector(".news-type").innerText.trim(),
-        title: card.querySelector(".news-title a").innerText,
-        category: card.querySelector(".news-category").innerText,
-        author: card.querySelector(".news-author").innerText,
-        date: card.querySelector(".news-date").innerText,
-        description: card.querySelector(".news-description").innerText,
-        fullContent: card.querySelector(".news-full").innerText,
-        image: card.querySelector("img").src,
-        videoUrl: card.dataset.video || ""
-      };
-      localStorage.setItem("selectedArticle", JSON.stringify(data));
-      window.location.href = "article.html";
-      window.location.href = card.dataset.url;
-    });
-  });
-
-});  
-
-
-
-
-
-
-
-
-
-
-document.addEventListener("DOMContentLoaded", () => {
-=======
->>>>>>> a8c4056ecbdfe082f8f7cf44fca2dd152eaeacec
   const categoryLinks = document.querySelectorAll("nav a, .mobile-nav a");
   const articlesBtn = document.getElementById("articlesBtn");
   const videosBtn = document.getElementById("videosBtn");
 
   let currentCategory = "All";
-  let currentType = "article"; // default
+  let currentType = "article";
 
   // ================= FILTER FUNCTION =================
   function filterNews() {
     cards.forEach(card => {
-
       const cardCategory = card.querySelector(".news-category")?.textContent.trim();
       const cardType = card.querySelector(".news-type")?.textContent.trim();
 
@@ -86,10 +25,8 @@ document.addEventListener("DOMContentLoaded", () => {
   categoryLinks.forEach(link => {
     link.addEventListener("click", (e) => {
       e.preventDefault();
-
       currentCategory = link.getAttribute("data-category")?.trim() || "All";
       filterNews();
-
       categoryLinks.forEach(l => l.classList.remove("active"));
       link.classList.add("active");
     });
@@ -97,7 +34,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // ================= TYPE TABS =================
   if (articlesBtn && videosBtn) {
-
     articlesBtn.addEventListener("click", () => {
       currentType = "article";
       filterNews();
@@ -111,63 +47,73 @@ document.addEventListener("DOMContentLoaded", () => {
       videosBtn.classList.add("active");
       articlesBtn.classList.remove("active");
     });
-
   }
 
-  // ================= CARD CLICK =================
+  // ================= CARD CLICK + SHARE =================
   cards.forEach(card => {
-
     const titleElement = card.querySelector(".news-title a");
-    const title = titleElement?.innerText || "";
-    const articleUrl = titleElement?.href || "";
-    const description = card.querySelector(".news-description")?.innerText || "";
+    const title = titleElement?.innerText?.trim() || "";
+    const articleUrl = titleElement?.href || window.location.href;
+    const description = card.querySelector(".news-description")?.innerText?.trim() || "";
+    const imageUrl = card.querySelector(".news-image img")?.src || "";
 
-    // 👉 Open article page when card clicked
+    // Open article on card click
     card.addEventListener("click", function () {
       window.location.href = articleUrl;
     });
 
-    // ================= SHARE BUTTONS =================
-
-    // Facebook
+    // ── FACEBOOK ──────────────────────────────────────────
+    // Facebook only accepts a URL — it scrapes title/image from the page's OG meta tags
     card.querySelector(".share-btn.fb")?.addEventListener("click", function (e) {
       e.stopPropagation();
-      const fbUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(articleUrl)}`;
-      window.open(fbUrl, "_blank");
+      const url = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(articleUrl)}`;
+      window.open(url, "_blank");
     });
 
-    // Twitter / X
+    // ── TWITTER / X ───────────────────────────────────────
     card.querySelector(".share-btn.tw")?.addEventListener("click", function (e) {
       e.stopPropagation();
-      const twitterUrl =
-        `https://twitter.com/intent/tweet?text=${encodeURIComponent(title)}&url=${encodeURIComponent(articleUrl)}`;
-      window.open(twitterUrl, "_blank");
+      const text = `${title}\n${articleUrl}`;
+      const url = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}`;
+      window.open(url, "_blank");
     });
 
-    // Email
+    // ── EMAIL ─────────────────────────────────────────────
     card.querySelector(".share-btn.mail")?.addEventListener("click", function (e) {
       e.stopPropagation();
-      const mailUrl =
-        `mailto:?subject=${encodeURIComponent(title)}&body=${encodeURIComponent(description + "\n\n" + articleUrl)}`;
-      window.location.href = mailUrl;
+      const subject = encodeURIComponent(title);
+      const body = encodeURIComponent(`${title}\n\n${description}\n\nRead more: ${articleUrl}`);
+      window.location.href = `mailto:?subject=${subject}&body=${body}`;
     });
 
-       // ✅ WhatsApp (FIXED)
+    // ── WHATSAPP ──────────────────────────────────────────
     card.querySelector(".share-btn.wa")?.addEventListener("click", function (e) {
       e.stopPropagation();
-      const message = title + "\n\n" + articleUrl;
-      const whatsappUrl =
-        "https://api.whatsapp.com/send?text=" +
-        encodeURIComponent(message);
-      window.open(whatsappUrl, "_blank");
+      const message = `*${title}*\n\n${description}\n\n${articleUrl}`;
+      const url = `https://api.whatsapp.com/send?text=${encodeURIComponent(message)}`;
+      window.open(url, "_blank");
     });
 
-    // Copy Link
+    // ── COPY LINK / WEB SHARE ─────────────────────────────
     card.querySelector(".share-btn.more")?.addEventListener("click", function (e) {
       e.stopPropagation();
-      navigator.clipboard.writeText(articleUrl).then(() => {
-        alert("Article link copied!");
-      });
+
+      // Use Web Share API if available (mobile — allows sharing image too)
+      if (navigator.share) {
+        navigator.share({
+          title: title,
+          text: description,
+          url: articleUrl,
+        }).catch(() => {});
+      } else {
+        // Fallback: copy link to clipboard
+        navigator.clipboard.writeText(articleUrl).then(() => {
+          const btn = card.querySelector(".share-btn.more");
+          const original = btn.innerText;
+          btn.innerText = "✓";
+          setTimeout(() => btn.innerText = original, 2000);
+        });
+      }
     });
 
   });
@@ -176,17 +122,3 @@ document.addEventListener("DOMContentLoaded", () => {
   filterNews();
 
 });
-
-  
-  filterNews();
-
-});   document.querySelectorAll(".news-card").forEach(card => {
-
-  const link = card.querySelector(".news-title a");
-
-  if (!link) return;
-
-  const articleUrl = link.href;
-  const title = link.innerText;
-  const description = card.querySelector(".news-description")?.innerText || "";
-

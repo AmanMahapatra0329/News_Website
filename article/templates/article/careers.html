@@ -30,11 +30,12 @@
     <div id="applicationForm" class="application-form">
       <h2>Apply for Position</h2>
 
-      <form id="careerForm">
-        <input type="text" placeholder="Full Name" required>
-        <input type="email" placeholder="Email Address" required>
-        <input type="text" placeholder="LinkedIn Profile URL">
-        <textarea placeholder="Why should we hire you?" required></textarea>
+      <form method ="post" id="careerForm">
+        {% csrf_token %}
+        <input name="name" type="text" placeholder="Full Name" required>
+        <input name="email" type="email" placeholder="Email Address" required>
+        <input name="Profile" type="text" placeholder="LinkedIn Profile URL">
+        <textarea name="skills" placeholder="Why should we hire you?" required></textarea>
         <button type="submit">Submit Application</button>
       </form>
 
@@ -44,6 +45,14 @@
   </div>
 </section>
 
-<script src="{% static 'js/careers.js' %}"></script>
+{% if messages %}
+  {% for message in messages %}
+    <script>
+      alert("{{ message }}");
+    </script>
+  {% endfor %}
+{% endif %}
+
+<script src="{% static 'js/careers.js' %}?v=12"></script>
 </body>
 </html>

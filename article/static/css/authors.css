@@ -13,6 +13,11 @@ body {
   margin: auto;
 }
 
+h1 {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
 .subtitle {
   text-align: center;
   margin-bottom: 40px;
@@ -25,10 +30,14 @@ body {
   padding: 25px;
   border-radius: 10px;
   align-items: center;
+  margin-bottom: 20px; /* ✅ space between cards */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07); /* ✅ subtle shadow */
 }
 
 .author-card img {
   width: 150px;
+  height: 150px;       /* ✅ consistent image size */
+  object-fit: cover;   /* ✅ prevents stretching */
   border-radius: 10px;
 }
 

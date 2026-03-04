@@ -1,7 +1,7 @@
 from django.core.paginator import Paginator
 from django.shortcuts import render,redirect
 from django.contrib import messages
-from .models import Herosection,breakingnews,homepagearticle,contactus,authorpage
+from .models import Herosection,breakingnews,homepagearticle,contactus,authorpage,Comment,Carrer
 
 # Create your views here.
 def homepage(request):
@@ -15,17 +15,17 @@ def homepage(request):
 
 def temp(request,slug):
     article=homepagearticle.objects.get(slug=slug)
-    return render(request,"article/article.html",{"article":article})
+    related_article=homepagearticle.objects.all()[:4]
+    latest_article=homepagearticle.objects.all()[:2]
 
-# def breakingnews_text(request):
-#     breaking=breakingnews.objects.all()
-#     return render(request,'article/newscard.html',{"breaking":breaking})
+    if request.method == 'POST':
+        name=request.POST.get('name')
+        comment=request.POST.get('comment')
+        Comment.objects.create(key=article,name=name,comment=comment)
 
+    comm=Comment.objects.filter(key=article)
 
-
-# def article_detail(request, id):
-#     article = get_object_or_404(homepagearticle, id=id)
-#     return render(request, "article/article_detail.html", {"article": article})
+    return render(request,"article/article.html",{"article":article,"related_article":related_article,"latest_article":latest_article,"com":comm})
 
 def listing(request):
     article_list=homepagearticle.objects.all()
@@ -50,27 +50,14 @@ def contactpagerender(request):
 def authorspagerender(request):
     authors=authorpage.objects.all()
     return render(request,'article/authors.html',{"authors":authors})
+
 def careerspagerender(request):
-    return render(request,'article/careers.html')
-
-
-
-def article_detail(request, slug):
-    article = Article.objects.get(slug=slug)
-
-    related_news = Article.objects.filter(
-        news_catagory=article.news_catagory
-    ).exclude(id=article.id)[:3]
-
-    latest_news = Article.objects.order_by('-published_date')[:5]
-    trending_news = Article.objects.order_by('-views')[:5]
-
-    comments = Comment.objects.filter(article=article)
-
-    return render(request, 'article/article.html', {
-        'article': article,
-        'related_news': related_news,
-        'latest_news': latest_news,
-        'trending_news': trending_news,
-        'comments': comments
-    })
+    if request.method == 'POST':
+        name = request.POST.get('name')
+        email = request.POST.get('email')
+        profile = request.POST.get('Profile')
+        skills = request.POST.get('skills')
+        Carrer.objects.create(name=name, email=email, profile=profile, skills=skills)  # ✅ skills=skills
+        messages.success(request, 'Request Submitted Successfully.')
+        return redirect('careerspage')
+    return render(request, 'article/careers.html')

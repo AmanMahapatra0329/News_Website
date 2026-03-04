@@ -2,8 +2,10 @@
 {% load static %}
 
 {% block HFinsertion %}
-<link rel="stylesheet" href="{% static 'css/article.css' %}?v=300">
-
+<link rel="stylesheet" href="{% static 'css/article.css' %}?v=322">
+<div class="back-wrapper">
+<a href="{% url 'HFpage' %}" class="back-btn">Back</a>
+</div>
 <div class="article-layout">
 
   <!-- ================= MAIN ARTICLE (LEFT) ================= -->
@@ -16,7 +18,7 @@
 
     <!-- Title -->
     <h1 class="article-title">
-      {{ article.title }}
+      {{ article.odia_title }}
     </h1>
 
     <!-- Author + Date -->
@@ -41,6 +43,11 @@
       {{ article.content|linebreaks }}
     </div>
 
+{% if article.video_link %}
+<div class="video-container">
+<iframe src="{{ article.video_link }}?rel=0&modestbranding=1&controls=0&showinfo=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen rel=0 modestbranding=1></iframe></div>
+{% endif %}
+
     <!-- ================= REPORTER CARD ================= -->
     <div class="reporter-card">
       <img src="{{ article.reporter_image.url }}" alt="{{ article.reporter_name }}">
@@ -52,11 +59,12 @@
       </div>
     </div>
 
+
     <!-- ================= COMMENT SECTION ================= -->
     <div class="comment-section">
       <h2>Leave a Comment</h2>
 
-      <form method="POST">
+      <form method="post">
         {% csrf_token %}
         <input type="text" name="name" placeholder="Your Name" required>
         <textarea name="comment" placeholder="Write your comment..." required></textarea>
@@ -64,11 +72,11 @@
       </form>
 
       <div class="comments-list">
-        {% for comment in comments %}
+        {% for cm in com %}
         <div class="comment">
-          <strong>{{ comment.name }}</strong>
-          <p>{{ comment.comment }}</p>
-          <span>{{ comment.created_at }}</span>
+          <strong>{{ cm.name }}</strong>
+          <p>{{ cm.comment }}</p>
+          <span>{{ cm.commented_at }}</span>
         </div>
         {% endfor %}
       </div>
@@ -84,8 +92,8 @@
     <!-- Related News -->
     <div class="sidebar-section">
       <h3>Related News</h3>
-      {% for news in related_news %}
-        <a href="{% url 'article_detail' news.slug %}" class="side-link">
+      {% for news in related_article %}
+        <a href="{% url 'articlerender' news.slug %}" class="side-link">
           <div class="side-card">
             <img src="{{ news.image.url }}">
             <p>{{ news.title }}</p>
@@ -97,31 +105,25 @@
     <!-- Latest News -->
     <div class="sidebar-section">
       <h3>Latest News</h3>
-      {% for news in latest_news %}
-        <a href="{% url 'article_detail' news.slug %}" class="side-link">
+      {% for news in latest_article %}
+      <a href="{% url 'articlerender' news.slug%}" class="side-link">
+        <div class="side-card">
+          <img src="{{ news.image.url }}">
           <p>{{ news.title }}</p>
-        </a>
-      {% endfor %}
+        </div>
+      </a>
+{% endfor %}
     </div>
-
-    <!-- Trending -->
-    <div class="sidebar-section">
-      <h3>Trending</h3>
-      {% for news in trending_news %}
-        <a href="{% url 'article_detail' news.slug %}" class="side-link">
-          <p>{{ news.title }}</p>
-        </a>
-      {% endfor %}
-    </div>
-
     <!-- Ad Box -->
     <div class="sidebar-section ad-box">
       <h3>Advertisement</h3>
-      <p>Your Ad Here</p>
+      <img src="{% static 'AD_image/6.webp' %}?v=300" alt="Advertisement">
     </div>
 
   </aside>
 
 </div>
+
+
 
 {% endblock %}

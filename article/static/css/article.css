@@ -151,7 +151,7 @@ body {
   background: #1a1a1a;
   padding: 20px;
   border-radius: 12px;
-  height: fit-content;
+  min-height: 600px; /* adjust this to match main content */
 }
 
 .sidebar-section {
@@ -195,13 +195,70 @@ body {
   font-size: 14px;
 }
 
-/* Advertisement Box */
+.back-wrapper {
+    margin-left: 30px;   /* adjust this value */
+    margin-top: 20px;
+}
+
+.back-btn {
+    display: inline-block;
+    padding: 12px 28px;
+    background: linear-gradient(135deg, #e50914, #b20710);
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.back-btn:hover {
+    background: linear-gradient(135deg, #ff1f1f, #c40812);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+}
+
+.back-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+}
+
 .ad-box {
   background: #222;
   padding: 20px;
-  text-align: center;
-  border-radius: 8px;
+  border-radius: 12px;
 }
+
+.ad-box h3 {
+  font-size: 16px;
+  margin-bottom: 15px;
+  border-left: 4px solid #ff0047;
+  padding-left: 10px;
+}
+
+.ad-box img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  display: block;
+}
+
+.video-container {
+  position: relative;
+  padding-bottom: 90%; /* 16:9 ratio */
+  height: 0;
+  overflow: hidden;
+}
+
+.video-container iframe {
+  position: absolute;
+  top: -60px;
+  left: 0;
+  width: 100%;
+  height: calc(100% + 30px);
+}
+
 
 /* ── COMMENT SECTION ───────────────────────── */
 

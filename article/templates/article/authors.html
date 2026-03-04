@@ -3,41 +3,28 @@
 <html>
 <head>
   <title>Our Journalists - YourNews</title>
-  <link rel="stylesheet" href="{% static 'css/authors.css' %}">
+  <link rel="stylesheet" href="{% static 'css/authors.css' %}?v=197">
 </head>
 <body>
 
 <section class="authors">
-  
   <div class="container">
-
     <h1>Meet Our Journalists</h1>
     <p class="subtitle">Independent voices committed to truth.</p>
-  {% for author in authors %}
-    <!-- ================= AUTHOR CARD ================= -->
+
+    {% for author in authors %}
     <div class="author-card">
-
-      <!-- EDIT THIS: Add image -->
       <img src="{{author.image.url}}" alt="Journalist">
-
       <div class="author-info">
-        <!-- EDIT THIS -->
         <h2>{{author.title}}</h2>
-
-        <!-- EDIT THIS -->
         <p class="role">{{author.position}}</p>
-
-        <!-- EDIT THIS -->
-        <p>
-          {{author.description}}
-        </p>
-
-        <!-- EDIT THIS -->
+        <p>{{author.description}}</p>
         <p class="email">{{author.mail}}</p>
       </div>
     </div>
-  </div>
-  {% endfor %}
+    {% endfor %}
+
+  </div>  <!-- ✅ container closes here, outside the loop -->
 </section>
 
 <script src="{% static 'js/authors.js' %}"></script>
