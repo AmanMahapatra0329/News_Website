@@ -3,7 +3,7 @@ from .models import Herosection,breakingnews,homepagearticle,contactus,authorpag
 from django.contrib import admin
 
 admin.site.site_header = "Ganjam Today Admin"
-admin.site.site_title = "HELLO"
+admin.site.site_title = "Welcome to Ganjam Today."
 admin.site.index_title = "Manage Articles & Videos of Ganjam Today"
 # Register your models here.
 admin.site.register(Herosection)
