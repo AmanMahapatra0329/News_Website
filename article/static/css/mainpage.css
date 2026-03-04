@@ -11,7 +11,7 @@ body{
 
 .hero{
   position:relative;
-  height:55vh;   /* or 80vh for bigger hero */
+  height:55vh;  
   overflow:hidden;
   color:white;
 }
@@ -37,7 +37,7 @@ body{
 .slide img{
   width:100%;
   height:100%;
-  object-fit:cover;   /* This makes image fill properly */
+  object-fit:cover;   
 }
 
 /* Overlay */
@@ -51,14 +51,14 @@ body{
     rgba(0,0,0,.7),
     rgba(0,0,0,.4)
   );
-  z-index:1;  /* BELOW TEXT */
+  z-index:1; 
 }
 
 /* Content */
 
 .hero-content{
   position:relative;
-  z-index:2;  /* ABOVE OVERLAY */
+  z-index:2; 
   max-width:1100px;
   margin:auto;
   height:100%;
@@ -201,7 +201,6 @@ body{
     font-size:16px;
   }
 }
-/* ===== PREMIUM ENHANCEMENTS ===== */
 
 /* Soft cinematic fade on slides */
 .slide::after{
@@ -211,9 +210,6 @@ body{
   background:radial-gradient(circle at 30% 50%, rgba(255,0,70,.2), transparent 60%);
   mix-blend-mode:screen;
 }
-
-/* Glass effect content panel */
-
 
 /* Premium Title Gradient */
 .hero-content h1{
@@ -272,18 +268,6 @@ body{
   overflow:hidden;
 }
 
-/* Soft glow
-.top-tabs button::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  border-radius:40px;
-  background:linear-gradient(45deg,#ff0047,#6a00ff,#00f0ff);
-  opacity:0;
-  transition:.4s;
-  z-index:-1;
-} */
-
 /* Hover Effect */
 .top-tabs button:hover{
   transform:translateY(-3px);
@@ -299,14 +283,3 @@ body{
   background:linear-gradient(45deg,rgb(124, 122, 122));
   box-shadow:0 5px 4px rgb(180, 179, 179);
 }
-
-/* Active Glow Animation
-.top-tabs button.active{
-  animation:glowPulse 3s infinite;
-} */
-
-/* @keyframes glowPulse{
-  0%{box-shadow:0 0 10px rgba(255,0,80,.5);}
-  50%{box-shadow:0 0 25px rgba(255,0,80,.8);}
-  100%{box-shadow:0 0 10px rgba(255,0,80,.5);}
-} */

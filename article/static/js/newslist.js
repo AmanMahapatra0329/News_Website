@@ -63,7 +63,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // ── FACEBOOK ──────────────────────────────────────────
-    // Facebook only accepts a URL — it scrapes title/image from the page's OG meta tags
     card.querySelector(".share-btn.fb")?.addEventListener("click", function (e) {
       e.stopPropagation();
       const url = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(articleUrl)}`;
@@ -97,8 +96,6 @@ document.addEventListener("DOMContentLoaded", () => {
     // ── COPY LINK / WEB SHARE ─────────────────────────────
     card.querySelector(".share-btn.more")?.addEventListener("click", function (e) {
       e.stopPropagation();
-
-      // Use Web Share API if available (mobile — allows sharing image too)
       if (navigator.share) {
         navigator.share({
           title: title,
@@ -106,7 +103,6 @@ document.addEventListener("DOMContentLoaded", () => {
           url: articleUrl,
         }).catch(() => {});
       } else {
-        // Fallback: copy link to clipboard
         navigator.clipboard.writeText(articleUrl).then(() => {
           const btn = card.querySelector(".share-btn.more");
           const original = btn.innerText;
