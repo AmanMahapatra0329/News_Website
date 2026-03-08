@@ -87,11 +87,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // ── WHATSAPP ──────────────────────────────────────────
     card.querySelector(".share-btn.wa")?.addEventListener("click", function (e) {
-      e.stopPropagation();
-      const message = `*${title}*\n\n${description}\n\n${articleUrl}`;
-      const url = `https://api.whatsapp.com/send?text=${encodeURIComponent(message)}`;
-      window.open(url, "_blank");
-    });
+  e.stopPropagation();
+  
+  // Build a share URL that includes your article URL as a param
+  // Your server renders this page with correct OG meta tags
+  const sharePageUrl = `https://ganjam-today.onrender.com/share?url=${encodeURIComponent(articleUrl)}&title=${encodeURIComponent(title)}&img=${encodeURIComponent(imageUrl)}`;
+  
+  const message = `*${title}*\n\n${description}\n\n${sharePageUrl}`;
+  const url = `https://api.whatsapp.com/send?text=${encodeURIComponent(message)}`;
+  window.open(url, "_blank");
+});
 
     // ── COPY LINK / WEB SHARE ─────────────────────────────
     card.querySelector(".share-btn.more")?.addEventListener("click", function (e) {

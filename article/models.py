@@ -31,7 +31,7 @@ class homepagearticle(models.Model):
     description=models.TextField(default="No description provided")
     content=models.TextField(default='No news yet.')
     video_link=models.URLField(blank=True, null=True)
-    reporter_image=models.ImageField(upload_to='reporterimage/',default='image not provided.')
+    reporter_image=models.ImageField(upload_to='reporterimage/',default='')
     reporter_name=models.CharField(max_length=100,blank=True)
     reporter_position=models.CharField(max_length=100,blank=True)
     reporter_area=models.CharField(max_length=100,blank=True)
