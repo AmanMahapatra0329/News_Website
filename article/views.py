@@ -7,7 +7,7 @@ from .models import Herosection,breakingnews,homepagearticle,contactus,authorpag
 def homepage(request):
     hero=Herosection.objects.all()
     breaking=breakingnews.objects.all()
-    article_list = homepagearticle.objects.all(order_by='published_date')
+    article_list = homepagearticle.objects.all().order_by('-published_date')
     paginator = Paginator(article_list, 8)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
