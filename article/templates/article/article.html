@@ -96,7 +96,7 @@
         <a href="{% url 'articlerender' news.slug %}" class="side-link">
           <div class="side-card">
             <img src="{{ news.image.url }}">
-            <p>{{ news.title }}</p>
+            <p>{{ news.odia_title }}</p>
           </div>
         </a>
       {% endfor %}
@@ -109,7 +109,7 @@
       <a href="{% url 'articlerender' news.slug%}" class="side-link">
         <div class="side-card">
           <img src="{{ news.image.url }}">
-          <p>{{ news.title }}</p>
+          <p>{{ news.odia_title }}</p>
         </div>
       </a>
 {% endfor %}
