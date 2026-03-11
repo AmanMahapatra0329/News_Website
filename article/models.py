@@ -84,7 +84,7 @@ class Carrer(models.Model):
     name = models.CharField(max_length=100)
     email = models.EmailField()
     profile = models.URLField(null=True, blank=True)
-    skills = models.TextField()  # ✅ changed back to skills
+    skills = models.TextField()  
 
     def __str__(self):
         return self.name
